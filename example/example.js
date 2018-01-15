@@ -37,10 +37,10 @@ document.querySelector('#toastBtn').addEventListener('click', function () {
 
 /* loading */
 document.querySelector('#loadingBtn').addEventListener('click', function () {
-    var loading = weui.loading('loading');
-    setTimeout(function () {
-        loading.hide();
-    }, 3000);
+    var loading = weui.loading('加载中');
+    // setTimeout(function () {
+    //     loading.hide();
+    // }, 3000);
 });
 
 
