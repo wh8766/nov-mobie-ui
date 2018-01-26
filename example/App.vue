@@ -295,7 +295,7 @@
 </template>
 
 <script>
-    let exp = import('../example/example')
+    const exp = import('../example/example')
 
     export default {
         name: 'app',
