@@ -3,14 +3,37 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const Home = { template: '<div>this is home page</div>' }
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
+import home from '../pages/home'
+import feedback from '../pages/feedback'
+import form from '../pages/form'
+import button from '../pages/button'
+import other from '../pages/other'
+import upload from '../pages/upload'
 
 const routes = [
     {
         path: '/',
-        component: Home,
+        component: home
+    },
+    {
+        path: '/feedback',
+        component: feedback
+    },
+    {
+        path: '/form',
+        component: form
+    },
+    {
+        path: '/button',
+        component: button
+    },
+    {
+        path: '/other',
+        component: other
+    },
+    {
+        path: '/upload',
+        component: upload
     },
     // 搜索页面
     // {
@@ -20,9 +43,7 @@ const routes = [
     // },
 ]
 
-export const router = new VueRouter({
+export default new VueRouter({
     linkActiveClass: 'active',
     routes
 })
-
-
