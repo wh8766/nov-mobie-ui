@@ -305,7 +305,7 @@
     }
 </script>
 
-<style src="./common/style/weui.less" lang="less"></style>
+<style src="../src/common/style/weui.less" lang="less"></style>
 <style>
     .item__content {
         padding: 15px;
