@@ -49,7 +49,7 @@
                 <div class="weui-cell__bd">洪七公</div>
             </label>
         </div>
-        <div class="weui-cells weui-cells_form">
+        <div class="weui-cells weui-cells_form" id="form">
             <div class="weui-cell">
                 <div class="weui-cell__hd"><label class="weui-label">手机号</label></div>
                 <div class="weui-cell__bd">
@@ -75,7 +75,7 @@
                 </div>
                 <div class="weui-cell__ft">
                     <i class="weui-icon-warn"></i>
-                    <img class="weui-vcode-img" src="http://temp.im/130x53">
+                    <img class="weui-vcode-img" src="http://placehold.it/130x53">
                 </div>
             </div>
         </div>
