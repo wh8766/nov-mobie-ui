@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    const exp = import('../example/example')
+    import FastClick from 'fastclick';
 
     export default {
         name: 'app',
@@ -16,23 +16,18 @@
         },
         watch: {
             '$route' (to, from) {
-                const toDepth = to.path.split('/').length
-                const fromDepth = from.path.split('/').length
+                const toDepth = to.path.split('/').filter(path => path).length
+                const fromDepth = from.path.split('/').filter(path => path).length
                 this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
             }
         },
         mounted() {
-            exp.then()
+            FastClick.attach(document.body);
         }
     }
 </script>
 
 <style src="../src/common/style/weui.less" lang="less"></style>
-<style>
-    .item__content {
-        padding: 15px;
-    }
-</style>
 <style>
     .fade-enter-active, .fade-leave-active {
         transition: opacity .5s ease;
@@ -43,6 +38,9 @@
     .child-view {
         position: absolute;
         transition: all .5s cubic-bezier(.55,0,.1,1);
+        top: 0;
+        left: 0;
+        right: 0;
     }
     .slide-left-enter, .slide-right-leave-active {
         opacity: 0;

@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <nov-page title="Other" desc="搜索框、滑块等">
         <div class="item">
             <h4 class="item__title">搜索框</h4>
             <div class="weui-search-bar" id="searchBar">
@@ -59,65 +59,63 @@
                 </div>
             </div>
         </div>
-        <div class="item">
-            <h4 class="item__title">预览框</h4>
-            <div class="weui-form-preview">
-                <div class="weui-form-preview__hd">
-                    <div class="weui-form-preview__item">
-                        <label class="weui-form-preview__label">付款金额</label>
-                        <em class="weui-form-preview__value">¥2400.00</em>
-                    </div>
-                </div>
-                <div class="weui-form-preview__bd">
-                    <div class="weui-form-preview__item">
-                        <label class="weui-form-preview__label">商品</label>
-                        <span class="weui-form-preview__value">电动打蛋机</span>
-                    </div>
-                    <div class="weui-form-preview__item">
-                        <label class="weui-form-preview__label">标题标题</label>
-                        <span class="weui-form-preview__value">名字名字名字</span>
-                    </div>
-                    <div class="weui-form-preview__item">
-                        <label class="weui-form-preview__label">标题标题</label>
-                        <span class="weui-form-preview__value">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</span>
-                    </div>
-                </div>
-                <div class="weui-form-preview__ft">
-                    <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">操作</a>
-                </div>
-            </div>
-            <br>
-            <div class="weui-form-preview">
-                <div class="weui-form-preview__hd">
-                    <label class="weui-form-preview__label">付款金额</label>
-                    <em class="weui-form-preview__value">¥2400.00</em>
-                </div>
-                <div class="weui-form-preview__bd">
-                    <div class="weui-form-preview__item">
-                        <label class="weui-form-preview__label">商品</label>
-                        <span class="weui-form-preview__value">电动打蛋机</span>
-                    </div>
-                    <div class="weui-form-preview__item">
-                        <label class="weui-form-preview__label">标题标题</label>
-                        <span class="weui-form-preview__value">名字名字名字</span>
-                    </div>
-                    <div class="weui-form-preview__item">
-                        <label class="weui-form-preview__label">标题标题</label>
-                        <span class="weui-form-preview__value">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</span>
-                    </div>
-                </div>
-                <div class="weui-form-preview__ft">
-                    <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:">辅助操作</a>
-                    <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">操作</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    </nov-page>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
+    import weui from 'weui.js';
+
+    import NovPage from '../components/nov-page'
+
+    /* slider 因为需要获取长度，所以必须要在slider显示的时候才调用weui.slider*/
+    let isSetSlider = false;
+    function setSlider(){
+        if(isSetSlider) return;
+        isSetSlider = true;
+
+        // 普通slider
+        var sliderValue = document.getElementById("sliderValue");
+        weui.slider('#slider', {
+            defaultValue: 50,
+            onChange: function(percent){
+                sliderValue.innerHTML = Math.round(percent);
+                console.log(percent);
+            }
+        });
+
+        // 带step的slider
+        var sliderStepValue = document.getElementById("sliderStepValue");
+        weui.slider('#sliderStep', {
+            step: 10,
+            defaultValue: 40,
+            onChange: function(percent){
+                sliderStepValue.innerHTML = Math.round(percent);
+                console.log(percent);
+            }
+        });
+
+        // 分块的slider
+        var sliderBlockValue = document.getElementById("sliderBlockValue");
+        weui.slider('#sliderBlock', {
+            step: 100 / 3,
+            defaultValue: 33.333,
+            onChange: function(percent){
+                sliderBlockValue.innerHTML = Math.round(percent);
+                console.log(percent);
+            }
+        });
+    }
+
     export default {
-        name: ""
+        name: "page-other",
+        components: {
+            NovPage
+        },
+        mounted() {
+            /* searchbar */
+            weui.searchBar('#searchBar');
+            setSlider()
+        }
     }
 </script>
 

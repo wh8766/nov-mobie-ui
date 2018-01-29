@@ -4,43 +4,27 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import home from '../pages/home'
-import feedback from '../pages/feedback'
-import form from '../pages/form'
-import button from '../pages/button'
-import other from '../pages/other'
-import upload from '../pages/upload'
+
+let pageRoutes = [
+    'feedback',
+    'form',
+    'button',
+    'other',
+    'upload',
+    'preview'
+].map(name => {
+    return {
+        path: `/${name}`,
+        component: resolve => require([`../pages/${name}.vue`], resolve)
+    }
+})
 
 const routes = [
     {
         path: '/',
         component: home
     },
-    {
-        path: '/feedback',
-        component: feedback
-    },
-    {
-        path: '/form',
-        component: form
-    },
-    {
-        path: '/button',
-        component: button
-    },
-    {
-        path: '/other',
-        component: other
-    },
-    {
-        path: '/upload',
-        component: upload
-    },
-    // 搜索页面
-    // {
-    //     path: '/search/:searchId',
-    //     component: resolve => require(['../view/SearchResultView.vue'], resolve),
-    //     name: 'search',
-    // },
+    ...pageRoutes
 ]
 
 export default new VueRouter({

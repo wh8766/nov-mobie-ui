@@ -1,12 +1,16 @@
 <template>
     <div class="nov-page" :class="type">
         <header class="header">
-            <h1>{{title}}</h1>
+            <h1>
+                <router-link to="/">Home</router-link>
+                |
+                {{title}}
+            </h1>
+            <p v-show="desc" class="desc"><slot name="desc">{{desc}}</slot></p>
         </header>
         <div class="wrapper">
-            <section v-show="desc" class="desc"><slot name="desc">{{desc}}</slot></section>
             <main class="content">
-                <slot name="content">{{content}}</slot>
+                <slot>{{content}}</slot>
             </main>
         </div>
     </div>
@@ -41,6 +45,28 @@
     }
 </script>
 
-<style scoped>
+<style type="text/less" lang="less" scoped>
+    .nov-page {
+        background-color: #f5f5f9;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 
+    header {
+        padding-left: 15px;
+        margin-bottom: 25px;
+
+        h1 {
+            font-size: 22px;
+            font-weight: lighter;
+
+            a {
+                color: #59626f;
+            }
+        }
+        p {
+            font-size: 14px;
+            font-weight: lighter;
+        }
+    }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div id="form">
+    <nov-page title="Form" desc="表单和输入框">
         <div class="weui-cells__title">性别</div>
         <div class="weui-cells weui-cells_radio">
             <label class="weui-cell weui-check__label" for="r1">
@@ -82,12 +82,46 @@
         <div class="weui-btn-area">
             <a id="formSubmitBtn" href="javascript:" class="weui-btn weui-btn_primary">提交</a>
         </div>
-    </div>
+    </nov-page>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
+    import weui from 'weui.js';
+
+    import NovPage from '../components/nov-page'
+
     export default {
-        name: ""
+        name: "page-form",
+        components: {
+            NovPage
+        },
+        mounted() {
+            /* form */
+            // 约定正则
+            var regexp = {
+                regexp: {
+                    IDNUM: /(?:^\d{15}$)|(?:^\d{18}$)|^\d{17}[\dXx]$/,
+                    VCODE: /^.{4}$/
+                }
+            };
+
+            // 失去焦点时检测
+            weui.form.checkIfBlur('#form', regexp);
+
+            // 表单提交
+            document.querySelector('#formSubmitBtn').addEventListener('click', function () {
+                weui.form.validate('#form', function (error) {
+                    console.log(error);
+                    if (!error) {
+                        var loading = weui.loading('提交中...');
+                        setTimeout(function () {
+                            loading.hide();
+                            weui.toast('提交成功', 3000);
+                        }, 1500);
+                    }
+                }, regexp);
+            });
+        }
     }
 </script>
 
