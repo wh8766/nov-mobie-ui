@@ -4,11 +4,31 @@
             <h1>Nov Mobile</h1>
             <p>Lenovo Service 移动端组件库</p>
         </header>
+
+        <section>
+            <h2>布局 Layout</h2>
+            <ul>
+                <li><a href="">Color</a></li>
+                <li><a href="">Enter loading</a></li>
+            </ul>
+        </section>
         <section>
             <h2>操作反馈 Feedback</h2>
             <ul>
                 <li>
                     <router-link to="/feedback">feedback</router-link>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>数据展示 Data show</h2>
+            <ul>
+                <li><a href="">scroll loading</a></li>
+                <li><a href="">slide</a></li>
+                <li><a href="">index list</a></li>
+                <li>
+                    <router-link to="/preview">preview</router-link>
                 </li>
             </ul>
         </section>
@@ -33,9 +53,6 @@
             <ul>
                 <li>
                     <router-link to="/other">other</router-link>
-                </li>
-                <li>
-                    <router-link to="/preview">preview</router-link>
                 </li>
             </ul>
         </section>

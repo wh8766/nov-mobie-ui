@@ -3,7 +3,7 @@
         <header class="header">
             <h1>
                 <router-link to="/">Home</router-link>
-                |
+                &nbsp;|&nbsp;
                 {{title}}
             </h1>
             <p v-show="desc" class="desc"><slot name="desc">{{desc}}</slot></p>
