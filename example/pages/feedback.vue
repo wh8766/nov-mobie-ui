@@ -310,11 +310,3 @@
         }
     }
 </script>
-
-<style type="text/less" lang="less" scoped>
-.page {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 20px;
-}
-</style>

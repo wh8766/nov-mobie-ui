@@ -52,4 +52,9 @@
         -webkit-transform: translate(-30px, 0);
         transform: translate(-30px, 0);
     }
+    .page {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 20px;
+    }
 </style>
