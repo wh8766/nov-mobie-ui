@@ -45,6 +45,9 @@
                 <li>
                     <router-link to="/upload">upload</router-link>
                 </li>
+                <li>
+                    <router-link to="/cell">cell</router-link>
+                </li>
             </ul>
         </section>
 

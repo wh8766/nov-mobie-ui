@@ -11,7 +11,9 @@ let pageRoutes = [
     'button',
     'other',
     'upload',
-    'preview'
+    'preview',
+    'group',
+    'cell'
 ].map(name => {
     return {
         path: `/${name}`,
