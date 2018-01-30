@@ -8,8 +8,11 @@
         <section>
             <h2>布局 Layout</h2>
             <ul>
-                <li><a href="">Color</a></li>
-                <li><a href="">Enter loading</a></li>
+                <li><a href="">color</a></li>
+                <li>
+                    <router-link to="/loading">loading</router-link>
+                </li>
+                <li><a href="">enter loading</a></li>
             </ul>
         </section>
         <section>
