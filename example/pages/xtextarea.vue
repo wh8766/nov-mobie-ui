@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <nov-page title="textarea" desc="文本输入">
     <group>
       <x-textarea :max="20" :value="value"  :placeholder="('placeholder')" @on-change="onChange" @on-focus="onEvent('focus')" @on-blur="onEvent('blur')"></x-textarea>
     </group>
@@ -13,7 +13,7 @@
     <group :title="('set height=200')">
       <x-textarea :title="'标题'" :max="200" :placeholder="'placeholder'" :show-counter="false" :height="200" :rows="8" :cols="30"></x-textarea>
     </group>
-  </div>
+  </nov-page>
 </template>
 
 <script>
@@ -29,6 +29,7 @@
             }
         },
         components: {
+            NovPage,
             XTextarea,
             Group
         },
