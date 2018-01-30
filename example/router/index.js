@@ -13,7 +13,8 @@ let pageRoutes = [
     'upload',
     'preview',
     'group',
-    'cell'
+    'cell',
+    'xtextarea'
 ].map(name => {
     return {
         path: `/${name}`,

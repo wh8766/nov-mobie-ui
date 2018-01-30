@@ -48,6 +48,9 @@
                 <li>
                     <router-link to="/cell">cell</router-link>
                 </li>
+                <li>
+                    <router-link to="/xtextarea">xtextarea</router-link>
+                </li>
             </ul>
         </section>
 
