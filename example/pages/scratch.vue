@@ -9,8 +9,12 @@
             </div>
 
             <div class="item">
-                <h4 class="item__title">刮刮自定义背景和信息</h4>
-                <nov-scratch :touchRadius="25" :activeBoundary="60">
+                <h4 class="item__title">刮刮自定义背景、事件</h4>
+                <nov-scratch :touchRadius="25"
+                             :activeBoundary="60"
+                             @on-image-load="onImageLoad"
+                             @on-show="onShow"
+                             @on-first="onFirst">
                     <div class="scratch-bg">
                         <h4>恭喜哈！狗年要吉祥！</h4>
                         <p>红包拿来</p>
@@ -32,6 +36,8 @@
 </template>
 
 <script type="text/ecmascript-6">
+    import weui from 'weui.js'
+
     import NovPage from '../components/nov-page'
     import NovScratch from '@/components/scratch/scratch'
 
@@ -40,7 +46,18 @@
         components: {
             NovPage,
             NovScratch
-        }
+        },
+        methods: {
+            onImageLoad() {
+                weui.topTips('刮奖区域图片加载完成')
+            },
+            onFirst() {
+                weui.topTips('首次刮动')
+            },
+            onShow() {
+                weui.alert('刮开奖，看看是什么？')
+            }
+        },
     }
 </script>
 

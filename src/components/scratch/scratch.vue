@@ -47,7 +47,8 @@
         },
         data() {
             return {
-                firstScratch: false
+                firstScratch: false,
+                showResult: false
             }
         },
         mounted() {
@@ -65,7 +66,7 @@
             ctx.fillRect(0, 0, width, height)
 
             img.onload = () => {
-                this.$emit('image-load')
+                this.$emit('on-image-load')
                 ctx.drawImage(img, 0, 0, width, height)
             }
 
@@ -80,7 +81,7 @@
                 //首次刮
                 if (!this.firstScratch) {
                     this.firstScratch = true
-                    this.$emit('first')
+                    this.$emit('on-first')
                 }
 
                 ctx.globalCompositeOperation = 'destination-out';
@@ -92,8 +93,9 @@
 
                 drawCircle(ctx, e.touches[0].pageX, e.touches[0].pageY)
 
-                if (getTransparentPercent(ctx, width, height) > this.activeBoundary) {
-                    this.$emit('show')
+                if (!this.showResult && getTransparentPercent(ctx, width, height) > this.activeBoundary) {
+                    this.$emit('on-show')
+                    this.showResult = true
                     el.remove()
                     return
                 }
@@ -113,8 +115,9 @@
 
                 e.preventDefault()
 
-                if (getTransparentPercent(ctx, width, height) > this.activeBoundary) {
-                    this.$emit('show')
+                if (!this.showResult && getTransparentPercent(ctx, width, height) > this.activeBoundary) {
+                    this.$emit('on-show')
+                    this.showResult = true
                     el.remove()
                 }
             }
