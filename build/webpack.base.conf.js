@@ -4,6 +4,7 @@ var vueLoaderConfig = require('./vue-loader.conf')
 var utils = require('./utils')
 var webpack = require('webpack')
 var version = require('../package.json').version
+
 // var anchor = require('markdown-it-anchor-cube')
 
 function resolve(dir) {
@@ -28,15 +29,15 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //   test: /\.(js|vue)$/,
-            //   loader: 'eslint-loader',
-            //   enforce: 'pre',
-            //   include: allSource,
-            //   options: {
-            //     formatter: require('eslint-friendly-formatter')
-            //   }
-            // },
+            {
+                test: /\.(js|vue)$/,
+                loader: 'eslint-loader',
+                enforce: 'pre',
+                include: allSource,
+                options: {
+                    formatter: require('eslint-friendly-formatter')
+                }
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
