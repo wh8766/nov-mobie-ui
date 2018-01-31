@@ -12,7 +12,9 @@
                 <li>
                     <router-link to="/loading">loading</router-link>
                 </li>
-                <li><a href="">enter loading</a></li>
+                <!--<li>-->
+                    <!--<router-link to="/entry-loading">enter loading</router-link>-->
+                <!--</li>-->
             </ul>
         </section>
         <section>
@@ -56,6 +58,15 @@
             <ul>
                 <li>
                     <router-link to="/other">other</router-link>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>业务组件 Business</h2>
+            <ul>
+                <li>
+                    <router-link to="/scratch">scratch</router-link>
                 </li>
             </ul>
         </section>

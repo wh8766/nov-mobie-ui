@@ -44,17 +44,18 @@
     }
     .slide-left-enter, .slide-right-leave-active {
         opacity: 0;
-        -webkit-transform: translate(30px, 0);
         transform: translate(30px, 0);
     }
     .slide-left-leave-active, .slide-right-enter {
         opacity: 0;
-        -webkit-transform: translate(-30px, 0);
         transform: translate(-30px, 0);
     }
     .page {
         padding-left: 15px;
         padding-right: 15px;
         padding-bottom: 20px;
+    }
+    ::-webkit-scrollbar {
+        display: none;
     }
 </style>

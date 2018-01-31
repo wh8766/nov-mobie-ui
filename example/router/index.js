@@ -7,10 +7,12 @@ import home from '../pages/home'
 
 let pageRoutes = [
     'feedback',
+    'loading',
     'form',
     'button',
     'other',
     'upload',
+    'scratch',
     'preview'
 ].map(name => {
     return {
