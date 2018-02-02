@@ -51,6 +51,9 @@
                 <li>
                     <router-link to="/xtextarea">xtextarea</router-link>
                 </li>
+                <li>
+                    <router-link to="/checker">checker</router-link>
+                </li>
             </ul>
         </section>
 
