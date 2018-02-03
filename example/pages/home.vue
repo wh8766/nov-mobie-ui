@@ -54,6 +54,9 @@
                 <li>
                     <router-link to="/checker">checker</router-link>
                 </li>
+                <li>
+                    <router-link to="/checklist">checklist</router-link>
+                </li>
             </ul>
         </section>
 

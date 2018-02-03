@@ -1,0 +1,115 @@
+<template>
+    <nov-page title="Checklist" desc="复选框">
+        <checklist :title="('Basic Usage')" :label-position="labelPosition" required :options="commonList"
+                   v-model="checklist001" @on-change="change"></checklist>
+        <div style="padding:15px;">
+            <nov-button @click.native="labelPosition = labelPosition === 'left' ? '' : 'left'" type="primary">切换 label 位置
+            </nov-button>
+            <nov-button @click.native="selectFirst" type="primary">选择第1个值</nov-button>
+            <nov-button @click.native="selectFirstTwo" type="primary">选择前两个值</nov-button>
+        </div>
+
+        <checklist :title="('preselect China and Japan(disabled)')" disabled label-position="left" :options="commonList"
+                   v-model="checklist002" @on-change="change"></checklist>
+
+        <checklist :title="('set max=2')" :options="commonList" v-model="checklist003" :max=2
+                   @on-change="change"></checklist>
+
+        <checklist :title="('set max=1(radio mode)')" :options="commonList" v-model="radioValue" :max="1"
+                   @on-change="change"></checklist>
+
+        <checklist :title="('set random order')" random-order :options="checklist005" v-model="checklist005Value"
+                   @on-change="change"></checklist>
+
+        <checklist ref="demoObject" :title="('Option Array with key and value(key must be string)')"
+                   :options="objectList" v-model="objectListValue" @on-change="change"></checklist>
+        <group>
+            {{ fullValues }}
+        </group>
+        <div style="padding:15px;">
+            <nov-button type="primary" @click.native="fullValues = $refs.demoObject.getFullValue()">getFullValue()</nov-button>
+        </div>
+
+        <checklist :title="('Option is Object with InlineDesc')" :options="inlineDescList" v-model="inlineDescListValue"
+                   @on-change="change"></checklist>
+
+        <checklist :title="('Async list')" :max="3" :options="asyncList" v-model="asyncListValue"
+                   @on-change="change"></checklist>
+        <group title="See also">
+            <cell title="Checker" is-link link="/checker"></cell>
+        </group>
+    </nov-page>
+</template>
+
+<script>
+    import NovPage from '../components/nov-page'
+    import Group from '@/components/group/group.vue'
+    import NovButton from '@/components/button/button.vue'
+    import Cell from '@/components/cell/cell.vue'
+    import Divider from '@/components/checker/divider.vue'
+    import Checklist from '@/components/check-list/check-list.vue'
+
+    export default {
+        mounted () {
+            setTimeout(() => {
+                this.asyncList = ['A', 'B', 'C', 'D']
+            }, 3000)
+        },
+        components: {
+            NovPage,
+            Group,
+            Checklist,
+            Cell,
+            Divider,
+            NovButton
+        },
+        methods: {
+            change (val, label) {
+                console.log('change', val, label)
+            },
+            selectFirst () {
+                this.checklist001 = ['China']
+            },
+            selectFirstTwo () {
+                this.checklist001 = ['China', 'Japan']
+            }
+        },
+        data () {
+            return {
+                fullValues: [],
+                labelPosition: '',
+                error: '',
+                commonList: ['China', 'Japan', 'America'],
+                checklist001: [],
+                checklist0011: [],
+                checklist002: ['China', 'Japan'],
+                checklist003: ['China', 'Japan'],
+                checklist005: ['01', '02', '03'],
+                checklist005Value: [],
+                objectList: [{ key: '1', value: '001 value' }, { key: '2', value: '002 value' }, {
+                    key: '3',
+                    value: '003 value'
+                }],
+                objectListValue: ['1', '2'],
+                inlineDescList: [
+                    { key: '1', value: 'tiger is good', inlineDesc: 'Tiger is the king of mountain' },
+                    { key: '2', value: 'lion is better', inlineDesc: 'Lion is the king of woods' },
+                    { key: '3', value: 'camel is best, no inline-desc' }
+                ],
+                inlineDescListValue: [1],
+                asyncList: [],
+                asyncListValue: [],
+                radioValue: ['China']
+            }
+        }
+    }
+</script>
+
+<style scoped>
+    .error {
+        padding-left: 15px;
+        line-height: 28px;
+        color: #888;
+        font-size: 12px;
+    }
+</style>

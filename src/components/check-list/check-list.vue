@@ -1,19 +1,19 @@
 <template>
-    <div :class="disabled ? 'vux-checklist-disabled' : ''">
+    <div :class="disabled ? 'weui-checklist-disabled' : ''">
         <div v-show="title" class="weui-cells__title">{{ title }}</div>
         <slot name="after-title"></slot>
         <div class="weui-cells weui-cells_checkbox">
-            <label class="weui-cell weui-check_label" :class="{'vux-checklist-label-left': labelPosition === 'left'}"
+            <label class="weui-cell weui-check_label" :class="{'weui-checklist-label-left': labelPosition === 'left'}"
                    :for="`checkbox_${uuid}_${index}`" v-for="(one, index) in currentOptions">
                 <div class="weui-cell__hd">
-                    <input type="checkbox" class="weui-check" :name="`vux-checkbox-${uuid}`" :value="getKey(one)"
+                    <input type="checkbox" class="weui-check" :name="`weui-checkbox-${uuid}`" :value="getKey(one)"
                            v-model="currentValue" :id="disabled ? '' : `checkbox_${uuid}_${index}`"
                            :disabled="isDisabled(getKey(one))">
-                    <i class="weui-icon-checked vux-checklist-icon-checked"></i>
+                    <i class="weui-icon-checked weui-checklist-icon-checked"></i>
                 </div>
                 <div class="weui-cell__bd">
                     <p v-html="getValue(one)"></p>
-                    <span v-if="getInlineDesc(one)" class="vux-label-desc">{{ getInlineDesc(one) }}</span>
+                    <span v-if="getInlineDesc(one)" class="weui-label-desc">{{ getInlineDesc(one) }}</span>
                 </div>
             </label>
         </div>
@@ -22,23 +22,17 @@
 </template>
 
 <script>
-    import Base from '../../libs/base'
-    import Tip from '../tip'
-    import Icon from '../icon'
-    import { getValue, getLabels, getKey, getInlineDesc } from './object-filter'
+    import { getValue, getLabels, getKey, getInlineDesc, createId } from './object-filter'
     import shuffle from 'array-shuffle'
 
     export default {
         name: 'checklist',
         components: {
-            Tip,
-            Icon
         },
         filters: {
             getValue,
             getKey
         },
-        mixins: [Base],
         props: {
             name: String,
             showError: Boolean,
@@ -68,6 +62,7 @@
         },
         data () {
             return {
+                uuid: createId(),
                 currentValue: [],
                 currentOptions: this.options,
                 tempValue: ''
@@ -212,27 +207,27 @@
     }
 </script>
 
-<style lang="less">
-    /*@import '../../styles/weui/widget/weui_cell/weui_cell_global';*/
-    /*@import '../../styles/weui/widget/weui_cell/weui_check';*/
-    /*@import '../../styles/weui/icon/weui_icon_font';*/
+<style lang='less' rel="stylesheet/less">
+    @import "../../common/style/widget/weui-cell/weui-cell_global";
+    @import "../../common/style/widget/weui-cell/weui-check";
+    @import "../../common/style/icon/weui-icon_font";
 
-    .weui-cells_checkbox .weui-check:checked + .vux-checklist-icon-checked:before {
-        color: @checklist-icon-active-color;
+    .weui-cells_checkbox .weui-check:checked + .weui-checklist-icon-checked:before {
+        color: green;
     }
 
     .weui-cells_checkbox > label > * {
         pointer-events: none;
     }
 
-    .vux-checklist-disabled .vux-checklist-icon-checked:before {
+    .weui-checklist-disabled .weui-checklist-icon-checked:before {
         opacity: 0.5;
     }
 
-    .vux-checklist-label-left {
+    .weui-checklist-label-left {
         flex-direction: row-reverse;
     }
-    .vux-label-desc {
+    .weui-label-desc {
         font-size:14px;
         color:#666;
     }
