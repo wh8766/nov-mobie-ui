@@ -1,7 +1,7 @@
 <template>
   <nov-page title="textarea" desc="文本输入">
     <group>
-      <x-textarea :max="20" :value="value"  :placeholder="('placeholder')" @on-change="onChange" @on-focus="onEvent('focus')" @on-blur="onEvent('blur')"></x-textarea>
+      <x-textarea :max="20"  :value="value"  :placeholder="('placeholder')" @on-change="onChange" @on-focus="onEvent('focus')" @on-blur="onEvent('blur')"></x-textarea>
     </group>
     <group :title="'不显示计数器'">
       <x-textarea :max="200" name="detail" :placeholder="('placeholder')" :show-counter="false"></x-textarea>
@@ -24,7 +24,7 @@
     export default {
         data() {
             return {
-                value: '1212',
+                value: '211311212',
                 placeholder: '我是placeholder'
             }
         },

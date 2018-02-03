@@ -1,5 +1,5 @@
 <template>
-  <div class="weui-cell weui-x-textarea">
+  <div class="weui-cell weui-x-textarea" >
     <div class="weui-cell__hd">
       <div :style="labelStyles" v-if="hasRestrictedLabel">
         <slot name="restricted-label"></slot>
@@ -56,6 +56,7 @@
                 type: Boolean,
                 default: true
             },
+            bg:String,
             max: Number,
             value: String,
             name: String,
