@@ -1,6 +1,6 @@
 <template>
     <nov-page title="Checklist" desc="复选框">
-        <checklist :title="('Basic Usage')" :label-position="labelPosition" required :options="commonList"
+        <checklist :title="'基本使用'" :label-position="labelPosition" required :options="commonList"
                    v-model="checklist001" @on-change="change"></checklist>
         <div style="padding:15px;">
             <nov-button @click.native="labelPosition = labelPosition === 'left' ? '' : 'left'" type="primary">切换 label 位置
@@ -9,16 +9,16 @@
             <nov-button @click.native="selectFirstTwo" type="primary">选择前两个值</nov-button>
         </div>
 
-        <checklist :title="('preselect China and Japan(disabled)')" disabled label-position="left" :options="commonList"
+        <checklist :title="'默认选中 China 和 Japan (禁用操作)'" disabled label-position="left" :options="commonList"
                    v-model="checklist002" @on-change="change"></checklist>
 
-        <checklist :title="('set max=2')" :options="commonList" v-model="checklist003" :max=2
+        <checklist :title="'最多可选中2个'" :options="commonList" v-model="checklist003" :max=2
                    @on-change="change"></checklist>
 
-        <checklist :title="('set max=1(radio mode)')" :options="commonList" v-model="radioValue" :max="1"
+        <checklist :title="'max=1（单选模式）'" :options="commonList" v-model="radioValue" :max="1"
                    @on-change="change"></checklist>
 
-        <checklist :title="('set random order')" random-order :options="checklist005" v-model="checklist005Value"
+        <checklist :title="'打乱选项顺序'" random-order :options="checklist005" v-model="checklist005Value"
                    @on-change="change"></checklist>
 
         <checklist ref="demoObject" :title="('Option Array with key and value(key must be string)')"
@@ -30,12 +30,12 @@
             <nov-button type="primary" @click.native="fullValues = $refs.demoObject.getFullValue()">getFullValue()</nov-button>
         </div>
 
-        <checklist :title="('Option is Object with InlineDesc')" :options="inlineDescList" v-model="inlineDescListValue"
+        <checklist :title="'包含 inlineDesc 属性的 Object 类型选项列表'" :options="inlineDescList" v-model="inlineDescListValue"
                    @on-change="change"></checklist>
 
-        <checklist :title="('Async list')" :max="3" :options="asyncList" v-model="asyncListValue"
+        <checklist :title="'异步选项列表'" :max="3" :options="asyncList" v-model="asyncListValue"
                    @on-change="change"></checklist>
-        <group title="See also">
+        <group title="参见">
             <cell title="Checker" is-link link="/checker"></cell>
         </group>
     </nov-page>
