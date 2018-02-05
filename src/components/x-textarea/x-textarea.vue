@@ -166,7 +166,7 @@
     }
 </script>
 
-<style lang="less">
+<style lang='less' rel="stylesheet/less">
   @import "../../common/style/widget/weui-cell/weui-cell_global";
   @import '../../common/style/widget/weui-cell/weui-form/weui-form_common';
 

@@ -10,7 +10,7 @@
       <x-textarea :placeholder="'Type something'" :show-counter="false" :rows="1" autosize></x-textarea>
       <x-textarea :title="'标题'" :placeholder="'Type something'" :show-counter="false" :rows="1" autosize></x-textarea>
     </group>
-    <group :title="('set height=200')">
+    <group :title="('设置 高度=200')">
       <x-textarea :title="'标题'" :max="200" :placeholder="'placeholder'" :show-counter="false" :height="200" :rows="8" :cols="30"></x-textarea>
     </group>
   </nov-page>
@@ -24,7 +24,7 @@
     export default {
         data() {
             return {
-                value: '211311212',
+                value: 'value',
                 placeholder: '我是placeholder'
             }
         },

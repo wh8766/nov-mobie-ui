@@ -57,6 +57,12 @@
                 <li>
                     <router-link to="/checklist">checklist</router-link>
                 </li>
+                <li>
+                    <router-link to="/xinput">xinput</router-link>
+                </li>
+                <li>
+                    <router-link to="/toast">toast</router-link>
+                </li>
             </ul>
         </section>
 

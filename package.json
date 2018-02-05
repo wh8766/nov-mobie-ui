@@ -12,9 +12,11 @@
         "build": "node build/build.js"
     },
     "dependencies": {
+        "lodash.debounce": "^4.0.8",
+        "vanilla-masker": "^1.2.0",
+        "array-shuffle": "^1.0.1"
     },
     "devDependencies": {
-        "array-shuffle": "^1.0.1",
         "babel-eslint": "^7.1.1",
         "eslint": "^3.14.1",
         "eslint-config-airbnb-base": "^11.0.1",

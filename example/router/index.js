@@ -16,7 +16,9 @@ let pageRoutes = [
     'cell',
     'xtextarea',
     'checker',
-    'checklist'
+    'checklist',
+    'xinput',
+    'toast'
 ].map(name => {
     return {
         path: `/${name}`,
