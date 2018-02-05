@@ -9,6 +9,7 @@ let pageRoutes = [
     'feedback',
     'loading',
     'form',
+    'slide',
     'button',
     'other',
     'upload',
@@ -31,5 +32,12 @@ const routes = [
 
 export default new VueRouter({
     linkActiveClass: 'active',
-    routes
+    routes,
+    scrollBehavior (to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { x: 0, y: 0 }
+        }
+    }
 })

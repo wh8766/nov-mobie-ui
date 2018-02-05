@@ -30,7 +30,9 @@
             <h2>数据展示 Data show</h2>
             <ul>
                 <li><a href="">scroll loading</a></li>
-                <li><a href="">slide</a></li>
+                <li>
+                    <router-link to="/slide">slide</router-link>
+                </li>
                 <li><a href="">index list</a></li>
                 <li>
                     <router-link to="/preview">preview</router-link>
