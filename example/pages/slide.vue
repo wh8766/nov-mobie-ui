@@ -26,7 +26,7 @@
     import NovSlide from '@/components/slide/slide'
 
     export default {
-        name: "page-button",
+        name: "page-slide",
         components: {
             NovPage,
             NovSlide
