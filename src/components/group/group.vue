@@ -1,50 +1,51 @@
 <template>
-  <div>
-    <div
-    class="weui-cells__title"
-    v-if="title"
-    :style="cleanStyle({
+    <div>
+        <div
+                class="weui-cells__title"
+                v-if="title"
+                :style="cleanStyle({
       color: titleColor
     })"
-    v-html="title"></div>
-    <slot name="title"></slot>
-    <div
-    class="weui-cells"
-    :class="{
+                v-html="title"></div>
+        <slot name="title"></slot>
+        <div
+                class="weui-cells"
+                :class="{
       'weui-no-group-title': !title
     }"
-    :style="cleanStyle({
+                :style="cleanStyle({
       marginTop: typeof gutter === 'number' ? (gutter + 'px') : gutter
     })">
-      <slot name="after-title"></slot>
-      <slot></slot>
+            <slot name="after-title"></slot>
+            <slot></slot>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
-import cleanStyle from '../../libs/clean-style'
+    import cleanStyle from '../../tool/clean-style'
 
-export default {
-  name: 'group',
-  methods: {
-      cleanStyle
-  },
-  props: {
-    title: String,
-    titleColor: String,
-    labelWidth: String,
-    labelAlign: String,
-    labelMarginRight: String,
-    gutter: [String, Number]
-  }
-}
+    export default {
+        name: 'group',
+        methods: {
+            cleanStyle
+        },
+        props: {
+            title: String,
+            titleColor: String,
+            labelWidth: String,
+            labelAlign: String,
+            labelMarginRight: String,
+            gutter: [String, Number]
+        }
+    }
 </script>
 
-<style lang='less' type="text/less" >
-  @import "../../common/style/widget/weui-cell/weui-access";
-  @import "../../common/style/widget/weui-cell/weui-cell_global";
-  .weui-no-group-title {
-    margin-top: 15px;
-  }
+<style lang='less' type="text/less">
+    @import "../../common/style/widget/weui-cell/weui-access";
+    @import "../../common/style/widget/weui-cell/weui-cell_global";
+
+    .weui-no-group-title {
+        margin-top: 15px;
+    }
 </style>

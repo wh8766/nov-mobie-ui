@@ -66,7 +66,7 @@
 </template>
 
 <script>
-    import { createId } from '../../libs/object-filter'
+    import { createId } from '../../tool/object-filter'
     import Icon from '../icon'
     import Toast from '../toast'
     import Debounce from 'lodash.debounce'

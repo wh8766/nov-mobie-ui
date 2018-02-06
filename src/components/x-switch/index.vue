@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import cleanStyle from '../../libs/clean-style'
+    import cleanStyle from '../../tool/clean-style'
 
     export default {
         name: 'x-switch',

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import { getValue, getLabels, getKey, getInlineDesc, createId } from '../../libs/object-filter'
+    import { getValue, getLabels, getKey, getInlineDesc, createId } from '../../tool/object-filter'
     import shuffle from 'array-shuffle'
 
     export default {

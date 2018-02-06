@@ -1,14 +1,16 @@
 <template>
-  <div class="weui-cell weui-x-textarea" >
-    <div class="weui-cell__hd">
-      <div :style="labelStyles" v-if="hasRestrictedLabel">
-        <slot name="restricted-label"></slot>
-      </div>
-      <slot name="label">
-        <label class="weui-label" :class="labelClass" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
-      </slot>
-    </div>
-    <div class="weui-cell__bd">
+    <div class="weui-cell weui-x-textarea">
+        <div class="weui-cell__hd">
+            <div :style="labelStyles" v-if="hasRestrictedLabel">
+                <slot name="restricted-label"></slot>
+            </div>
+            <slot name="label">
+                <label class="weui-label" :class="labelClass"
+                       :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}"
+                       v-if="title" v-html="title"></label>
+            </slot>
+        </div>
+        <div class="weui-cell__bd">
       <textarea
               class="weui-textarea"
               :autocomplete="autocomplete"
@@ -26,11 +28,11 @@
               :style="textareaStyle"
               :maxlength="max"
               ref="textarea"></textarea>
-      <div class="weui-textarea-counter" v-show="showCounter && max" @click="focus">
-        <span>{{count}}</span>/{{max}}
-      </div>
+            <div class="weui-textarea-counter" v-show="showCounter && max" @click="focus">
+                <span>{{count}}</span>/{{max}}
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -48,15 +50,14 @@
                 }
             })
         },
-        components: {
-        },
+        components: {},
         props: {
             title: String,
             showCounter: {
                 type: Boolean,
                 default: true
             },
-            bg:String,
+            bg: String,
             max: Number,
             value: String,
             name: String,
@@ -142,7 +143,7 @@
             },
             labelClass () {
                 return {
-                   // 'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
+                    // 'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
                 }
             }
         },
@@ -167,10 +168,10 @@
 </script>
 
 <style lang='less' rel="stylesheet/less">
-  @import "../../common/style/widget/weui-cell/weui-cell_global";
-  @import '../../common/style/widget/weui-cell/weui-form/weui-form_common';
+    @import "../../common/style/widget/weui-cell/weui-cell_global";
+    @import '../../common/style/widget/weui-cell/weui-form/weui-form_common';
 
-  .weui-x-textarea.weui-cell  {
-    align-items: flex-start;
-  }
+    .weui-x-textarea.weui-cell {
+        align-items: flex-start;
+    }
 </style>
