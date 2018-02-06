@@ -13,7 +13,14 @@ let pageRoutes = [
     'other',
     'upload',
     'scratch',
-    'preview'
+    'preview',
+    'group',
+    'cell',
+    'xtextarea',
+    'checker',
+    'checklist',
+    'xinput',
+    'toast'
 ].map(name => {
     return {
         path: `/${name}`,

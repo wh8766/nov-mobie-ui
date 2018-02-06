@@ -1,0 +1,483 @@
+<template>
+    <div class="weui-x-input weui-cell" :class="{'weui-cell_warn': showWarn}">
+        <div class="weui-cell__hd">
+            <div :style="labelStyles" v-if="hasRestrictedLabel">
+                <slot name="restricted-label"></slot>
+            </div>
+            <slot name="label">
+                <label class="weui-label" :class="labelClass"
+                       :style="{width: labelWidth || $parent.labelWidth || labelWidthComputed, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}"
+                       v-if="title" v-html="title" :for="`weui-x-input-${uuid}`"></label>
+                <span>
+              <slot>
+                  {{inlineDesc}}
+              </slot>
+          </span>
+            </slot>
+        </div>
+        <div class="weui-cell__bd weui-cell__primary"
+             :class="placeholderAlign ? `weui-x-input-placeholder-${placeholderAlign}` : ''">
+            <input
+                    :id="`weui-x-input-${uuid}`"
+                    class="weui-input"
+                    :maxlength="max"
+                    :autocomplete="autocomplete"
+                    :autocapitalize="autocapitalize"
+                    :autocorrect="autocorrect"
+                    :spellcheck="spellcheck"
+                    :style="inputStyle"
+                    :type='checktype()'
+                    :name="name"
+                    :pattern="pattern"
+                    :placeholder="placeholder"
+                    :readonly="readonly"
+                    :disabled="disabled"
+                    v-model="currentValue"
+                    @focus="focusHandler"
+                    @blur="onBlur"
+                    @keyup="onKeyUp"
+                    ref="input"/>
+        </div>
+        <div class="weui-cell__ft">
+            <icon type="clear" v-show="!equalWith && showClear && currentValue && !readonly && !disabled"
+                  @click.native="clear"></icon>
+
+            <icon @click.native="onClickErrorIcon" class="weui-input-icon" type="warn" :title="!valid ? firstError : ''"
+                  v-show="showWarn"></icon>
+            <icon @click.native="onClickErrorIcon" class="weui-input-icon" type="warn"
+                  v-if="!novalidate && hasLengthEqual && dirty && equalWith && !valid"></icon>
+
+            <icon type="success" v-show="!novalidate && equalWith && equalWith === currentValue && valid"></icon>
+
+            <icon type="success" class="weui-input-icon" v-show="novalidate && iconType === 'success'"></icon>
+            <icon type="warn" class="weui-input-icon" v-show="novalidate && iconType === 'error'"></icon>
+
+            <slot name="right"></slot>
+        </div>
+
+        <toast
+                v-model="showErrorToast"
+                position="bottom"
+                type="text"
+                width="auto"
+                :time="600">{{ firstError }}
+        </toast>
+    </div>
+</template>
+
+<script>
+    import { createId } from '../../tool/object-filter'
+    import Icon from '../icon'
+    import Toast from '../toast'
+    import Debounce from 'lodash.debounce'
+    import mask from 'vanilla-masker'
+
+    const validators = {
+        'email': {
+            fn: function () {
+                return true
+            },
+            msg: '邮箱格式'
+        },
+        'china-mobile': {
+            fn: function (val) {
+                return /^(\+?0?86\-?)?1[345789]\d{9}$/.test(val)
+            },
+            msg: '手机号码'
+        },
+        'china-name': {
+            fn (str) {
+                return str.length >= 2 && str.length <= 6
+            },
+            msg: '中文姓名'
+        }
+    }
+    export default {
+        name: 'x-input',
+        created () {
+            this.currentValue = (this.value === undefined || this.value === null) ? '' : (this.mask ? this.maskValue(this.value) : this.value)
+            if (this.required && !this.currentValue) {
+                this.valid = false
+            }
+            if (this.debounce) {
+                this._debounce = Debounce(() => {
+                    this.$emit('on-change', this.currentValue)
+                }, this.debounce)
+            }
+        },
+        beforeMount () {
+            if (this.$slots && this.$slots['restricted-label']) {
+                this.hasRestrictedLabel = true
+            }
+        },
+        beforeDestroy () {
+            if (this._debounce) {
+                this._debounce.cancel()
+            }
+        },
+        components: {
+            Icon,
+            Toast
+        },
+        props: {
+            title: {
+                type: String,
+                default: ''
+            },
+            type: {
+                type: String,
+                default: 'text'
+            },
+            placeholder: String,
+            value: [String, Number],
+            name: String,
+            readonly: Boolean,
+            disabled: Boolean,
+            keyboard: String,
+            inlineDesc: String,
+            isType: [String, Function],
+            min: Number,
+            max: Number,
+            showClear: {
+                type: Boolean,
+                default: true
+            },
+            equalWith: String,
+            textAlign: String,
+            // https://github.com/yisibl/blog/issues/3
+            autocomplete: {
+                type: String,
+                default: 'off'
+            },
+            autocapitalize: {
+                type: String,
+                default: 'off'
+            },
+            autocorrect: {
+                type: String,
+                default: 'off'
+            },
+            spellcheck: {
+                type: String,
+                default: 'false'
+            },
+            novalidate: {
+                type: Boolean,
+                default: false
+            },
+            iconType: String,
+            debounce: Number,
+            placeholderAlign: String,
+            labelWidth: String,
+            mask: String,
+            shouldToastError: {
+                type: Boolean,
+                default: true
+            },
+            required: {
+                type: Boolean,
+                default: false
+            }
+        },
+        computed: {
+            dirty: {
+                get: function () {
+                    return !this.pristine
+                },
+                set: function (newValue) {
+                    this.pristine = !newValue
+                }
+            },
+            labelStyles () {
+                return {
+                    width: this.labelWidthComputed || this.$parent.labelWidth || this.labelWidthComputed,
+                    textAlign: this.$parent.labelAlign,
+                    marginRight: this.$parent.labelMarginRight
+                }
+            },
+            labelClass () {
+                return {
+                    'weui-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
+                }
+            },
+            pattern () {
+                if (this.keyboard === 'number' || this.isType === 'china-mobile') {
+                    return '[0-9]*'
+                }
+            },
+            labelWidthComputed () {
+                const width = this.title.replace(/[^x00-xff]/g, '00').length / 2 + 1
+                if (width < 10) {
+                    return width + 'em'
+                }
+            },
+            hasErrors () {
+                return Object.keys(this.errors).length > 0
+            },
+            inputStyle () {
+                if (this.textAlign) {
+                    return {
+                        textAlign: this.textAlign
+                    }
+                }
+            },
+            showWarn () {
+                return !this.novalidate && !this.equalWith && !this.valid && this.firstError && (this.touched || this.forceShowError)
+            },
+            invalid () {
+                return !this.valid
+            }
+        },
+        methods: {
+
+            checktype () {
+                if (this.type && this.typeList[this.type]) {
+                    return this.type
+                } else {
+                    return 'text'
+                }
+            },
+            onClickErrorIcon () {
+                if (this.shouldToastError && this.firstError) {
+                    this.showErrorToast = true
+                }
+                this.$emit('on-click-error-icon', this.firstError)
+            },
+            maskValue (val) {
+                const val1 = this.mask ? mask.toPattern(val, this.mask) : val
+                return val1
+            },
+            reset (value = '') {
+                this.dirty = false
+                this.currentValue = value
+                this.firstError = ''
+                this.valid = true
+            },
+            clear () {
+                this.currentValue = ''
+                this.focus()
+            },
+            focus () {
+                this.$refs.input.focus()
+            },
+            blur () {
+                this.$refs.input.blur()
+            },
+            focusHandler ($event) {
+                this.$emit('on-focus', this.currentValue, $event)
+            },
+            onBlur ($event) {
+                this.setTouched()
+                this.validate()
+                this.$emit('on-blur', this.currentValue, $event)
+            },
+            setTouched () {
+                this.touched = true
+            },
+            onKeyUp (e) {
+                if (e.key === 'Enter') {
+                    e.target.blur()
+                    this.$emit('on-enter', this.currentValue, e)
+                }
+            },
+            getError () {
+                let key = Object.keys(this.errors)[0]
+                this.firstError = this.errors[key]
+            },
+            validate () {
+                if (typeof this.equalWith !== 'undefined') {
+                    this.validateEqual()
+                    return
+                }
+                this.errors = {}
+
+                if (!this.currentValue && !this.required) {
+                    this.valid = true
+                    return
+                }
+
+                if (!this.currentValue && this.required) {
+                    this.valid = false
+                    this.errors.required = '必填哦'
+                    this.getError()
+                    return
+                }
+
+                if (typeof this.isType === 'string') {
+                    const validator = validators[this.isType]
+                    if (validator) {
+                        let value = this.currentValue
+
+                        if (this.isType === 'china-mobile' && this.mask === '999 9999 9999') {
+                            value = this.currentValue.replace(/\s+/g, '')
+                        }
+
+                        this.valid = validator['fn'](value)
+                        if (!this.valid) {
+                            this.forceShowError = true
+                            this.errors.format = validator['msg'] + '格式不对哦~'
+                            this.getError()
+                            return
+                        } else {
+                            delete this.errors.format
+                        }
+                    }
+                }
+
+                if (typeof this.isType === 'function') {
+                    const validStatus = this.isType(this.currentValue)
+                    this.valid = validStatus.valid
+                    if (!this.valid) {
+                        this.errors.format = validStatus.msg
+                        this.forceShowError = true
+                        if (!this.firstError) {
+                            this.getError()
+                        }
+                        return
+                    } else {
+                        delete this.errors.format
+                    }
+                }
+
+                if (this.min) {
+                    if (this.currentValue.length < this.min) {
+                        this.errors.min = `最少应该输入${this.min}个字符哦`
+                        this.valid = false
+                        if (!this.firstError) {
+                            this.getError()
+                        }
+                        return
+                    } else {
+                        delete this.errors.min
+                    }
+                }
+
+                if (this.max) {
+                    if (this.currentValue.length > this.max) {
+                        this.errors.max = `最多可以输入${this.max}个字符哦`
+                        this.valid = false
+                        this.forceShowError = true
+                        return
+                    } else {
+                        this.forceShowError = false
+                        delete this.errors.max
+                    }
+                }
+
+                this.valid = true
+            },
+            validateEqual () {
+                if (!this.equalWith && this.currentValue) {
+                    this.valid = false
+                    this.errors.equal = '输入不一致'
+                    return
+                }
+                let willCheck = this.dirty || this.currentValue.length >= this.equalWith.length
+                // 只在长度符合时显示正确与否
+                if (willCheck && this.currentValue !== this.equalWith) {
+                    this.valid = false
+                    this.errors.equal = '输入不一致'
+                    return
+                } else {
+                    if (!this.currentValue && this.required) {
+                        this.valid = false
+                    } else {
+                        this.valid = true
+                        delete this.errors.equal
+                    }
+                }
+            }
+        },
+        data () {
+            return {
+                errors: {},
+                touched: false,
+                uuid: createId(),
+                hasRestrictedLabel: this.$isServer,
+                typeList: { 'text': '1', 'tel': '1', 'number': '1', 'email': '1', 'password': '1' },
+                firstError: '',
+                forceShowError: false,
+                hasLengthEqual: false,
+                valid: true,
+                currentValue: '',
+                showErrorToast: false
+            }
+        },
+        watch: {
+            mask (val) {
+                if (val && this.currentValue) {
+                    this.currentValue = this.maskValue(this.currentValue)
+                }
+            },
+            valid () {
+                this.getError()
+            },
+            value (val) {
+                this.currentValue = val
+            },
+            equalWith (newVal) {
+                if (newVal && this.equalWith) {
+                    if (newVal.length === this.equalWith.length) {
+                        this.hasLengthEqual = true
+                    }
+                    this.validateEqual()
+                } else {
+                    this.validate()
+                }
+            },
+            currentValue (newVal) {
+                if (!this.equalWith && newVal) {
+                    this.validateEqual()
+                }
+                if (newVal && this.equalWith) {
+                    if (newVal.length === this.equalWith.length) {
+                        this.hasLengthEqual = true
+                    }
+                    this.validateEqual()
+                } else {
+                    this.validate()
+                }
+                this.$emit('input', this.maskValue(newVal))
+                if (this._debounce) {
+                    this._debounce()
+                } else {
+                    this.$emit('on-change', newVal)
+                }
+            }
+        }
+    }
+</script>
+
+<style lang='less' rel="stylesheet/less">
+    @import '../../common/style/widget/weui-cell/weui-access.less';
+    @import '../../common/style/widget/weui-cell/weui-cell_global.less';
+    @import '../../common/style/widget/weui-cell/weui-form/weui-form_common.less';
+    @import '../../common/style/widget/weui-cell/weui-form/weui-vcode.less';
+
+    .weui-x-input .weui-x-input-placeholder-right input::-webkit-input-placeholder {
+        text-align: right;
+    }
+
+    .weui-x-input .weui-x-input-placeholder-center input::-webkit-input-placeholder {
+        text-align: center;
+    }
+
+    .weui-x-input .weui-input-icon {
+        font-size: 21px;
+    }
+
+    .weui-input-icon.weui-icon-warn:before, .weui-input-icon.weui-icon-success:before {
+        font-size: 21px;
+    }
+
+    .weui-x-input .weui-icon {
+        padding-left: 5px;
+    }
+
+    .weui-x-input.weui-cell_vcode {
+        padding-top: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+</style>
+

@@ -50,6 +50,24 @@
                 <li>
                     <router-link to="/upload">upload</router-link>
                 </li>
+                <li>
+                    <router-link to="/cell">cell</router-link>
+                </li>
+                <li>
+                    <router-link to="/xtextarea">xtextarea</router-link>
+                </li>
+                <li>
+                    <router-link to="/checker">checker</router-link>
+                </li>
+                <li>
+                    <router-link to="/checklist">checklist</router-link>
+                </li>
+                <li>
+                    <router-link to="/xinput">xinput</router-link>
+                </li>
+                <li>
+                    <router-link to="/toast">toast</router-link>
+                </li>
             </ul>
         </section>
 
