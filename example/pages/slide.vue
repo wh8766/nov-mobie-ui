@@ -1,6 +1,6 @@
 <template>
     <nov-page title="Slide" desc="基于cube-ui、better-scroll 的slide 组件">
-        <div>
+        <div class="flud-slide">
             <nov-slide>
                 <nov-slide-item v-for="(banner, index) in banners" :key="index">
                     <img :src="banner.image">
@@ -93,12 +93,8 @@
 
 <style lang='less' type="text/less" scoped>
     .flud-slide {
-        width: 100%;
         height: 150px;
-
-        img {
-            width: 100%;
-        }
+        overflow: hidden;
     }
 
     .slide-container {
