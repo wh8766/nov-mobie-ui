@@ -23,7 +23,7 @@
 
         <checklist ref="demoObject" :title="('Option Array with key and value(key must be string)')"
                    :options="objectList" v-model="objectListValue" @on-change="change"></checklist>
-        <group>
+        <group title="获取 fullValues">
             {{ fullValues }}
         </group>
         <div style="padding:15px;">

@@ -187,7 +187,7 @@
         padding: 5px 15px;
     }
     .demo1-item-selected {
-        border: 1px solid green;
+        border: 1px solid lightcoral;
     }
     .demo2-item {
         width: 40px;
@@ -199,7 +199,7 @@
         text-align: center;
     }
     .demo2-item-selected {
-        border-color: green;
+        border-color: lightcoral;
     }
     .demo3-item {
         padding: 5px 5px;
