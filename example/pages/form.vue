@@ -4,7 +4,7 @@
             <cell title="Cell" value="cell" is-link link="link"></cell>
         </group>
         <group>
-            <x-textarea :max="20" :value="value"  :placeholder="('placeholder')" @on-change="onChange" @on-focus="onEvent('focus')" @on-blur="onEvent('blur')"></x-textarea>
+            <novTextarea :max="20" :value="value"  :placeholder="('placeholder')" @on-change="onChange" @on-focus="onEvent('focus')" @on-blur="onEvent('blur')"></novTextarea>
         </group>
     </nov-page>
 </template>
@@ -13,7 +13,7 @@
     import NovPage from '../components/nov-page'
     import Group from '@/components/group/group.vue'
     import Cell from '@/components/cell/cell.vue'
-    import XTextarea from '@/components/x-textarea/x-textarea.vue'
+    import novTextarea from '@/components/nov-textarea/nov-textarea.vue'
 
 
     export default {
@@ -21,7 +21,7 @@
             Group,
             Cell,
             NovPage,
-            XTextarea
+            novTextarea
         },
         data () {
             return {

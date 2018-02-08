@@ -56,7 +56,7 @@
                     <router-link to="/cell">cell</router-link>
                 </li>
                 <li>
-                    <router-link to="/xtextarea">xtextarea</router-link>
+                    <router-link to="/novTextarea">novTextarea</router-link>
                 </li>
                 <li>
                     <router-link to="/checker">checker</router-link>
@@ -65,7 +65,10 @@
                     <router-link to="/checklist">checklist</router-link>
                 </li>
                 <li>
-                    <router-link to="/xinput">xinput</router-link>
+                    <router-link to="/novInput">novInput</router-link>
+                </li>
+                <li>
+                    <router-link to="/novSwitch">novSwitch</router-link>
                 </li>
                 <li>
                     <router-link to="/toast">toast</router-link>

@@ -19,11 +19,12 @@ let pageRoutes = [
     'preview',
     'group',
     'cell',
-    'xtextarea',
+    'novTextarea',
     'checker',
     'checklist',
-    'xinput',
-    'toast'
+    'novInput',
+    'toast',
+    'novSwitch'
 ].map(name => {
     return {
         path: `/${name}`,

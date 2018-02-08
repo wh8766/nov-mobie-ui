@@ -1,12 +1,13 @@
 <template>
     <div class=" weui-cell weui-cell_switch">
         <div class="weui-cell__bd">
-            <label class="weui-label" :style="labelStyle" v-html="title"></label>
+            <label class="weui-label" :style="labelStyle" >
+                <slot></slot>
+            </label>
             <span  v-if="inlineDesc" class="weui-label-desc">{{ inlineDesc }}</span>
         </div>
         <div class="weui-cell__ft">
-            <input class="weui-switch" type="checkbox" :disabled="disabled" v-model="currentValue"/>
-            <div v-if="preventDefault" class="vux-x-switch-overlay" @click="onClick"></div>
+            <input class="weui-switch" type="checkbox" :disabled="disabled" v-model="currentValue" @click="onClick"/>
         </div>
     </div>
 </template>
@@ -19,25 +20,21 @@
         components: {},
         computed: {
             labelStyle () {
-                let isHTML = /<\/?[^>]*>/.test(this.title)
-                let width = Math.min(isHTML ? 5 : (this.title.length + 1), 14) + 'em'
                 return cleanStyle({
                     display: 'block',
-                    width: this.$parent.labelWidth || width,
+                    width: this.$parent.labelWidth,
                     textAlign: this.$parent.labelAlign
                 })
             }
         },
         methods: {
             onClick () {
-                this.$emit('on-click', !this.currentValue, this.currentValue)
+                if(this.preventDefault){
+                    this.$emit('on-click', !this.currentValue, this.currentValue)
+                }
             }
         },
         props: {
-            title: {
-                type: String,
-                required: true
-            },
             disabled: Boolean,
             value: {
                 type: Boolean,
