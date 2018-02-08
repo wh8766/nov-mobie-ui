@@ -36,7 +36,7 @@
     }
 </script>
 
-<style lang='less' rel="stylesheet/less">
+<style lang='less' type="text/less" rel="stylesheet/less">
     .checker-box {
         .checker-item {
             display: inline-block;

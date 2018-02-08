@@ -16,7 +16,7 @@
     import cleanStyle from '../../tool/clean-style'
 
     export default {
-        name: 'x-switch',
+        name: 'nov-switch',
         components: {},
         computed: {
             labelStyle () {

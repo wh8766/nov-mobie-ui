@@ -207,14 +207,10 @@
     }
 </script>
 
-<style lang='less' rel="stylesheet/less">
+<style lang='less' type="text/less" rel="stylesheet/less">
     @import "../../common/style/widget/weui-cell/weui-cell_global";
     @import "../../common/style/widget/weui-cell/weui-check";
     @import "../../common/style/icon/weui-icon_font";
-
-    .weui-cells_checkbox .weui-check:checked + .weui-checklist-icon-checked:before {
-        color: green;
-    }
 
     .weui-cells_checkbox > label > * {
         pointer-events: none;

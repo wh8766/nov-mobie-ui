@@ -115,11 +115,14 @@
     }
 </script>
 
-<style lang='less' rel="stylesheet/less">
+<style lang='less' type="text/less" rel="stylesheet/less">
+    @import "../../common/style/base/variable/color";
+
     .checker-item {
         .tap-active {
             tap-highlight-color: rgba(0, 0, 0, 0);
             user-select: none;
+            border: 1px solid @weuiColorPrimary;
         }
         .tap-active:active {
             background-color: #ECECEC;

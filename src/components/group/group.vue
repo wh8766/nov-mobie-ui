@@ -41,7 +41,7 @@
     }
 </script>
 
-<style lang='less' type="text/less">
+<style lang='less' type="text/less" rel="stylesheet/less">
     @import "../../common/style/widget/weui-cell/weui-access";
     @import "../../common/style/widget/weui-cell/weui-cell_global";
 

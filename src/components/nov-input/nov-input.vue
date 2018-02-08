@@ -93,7 +93,7 @@
         }
     }
     export default {
-        name: 'x-input',
+        name: 'nov-input',
         created () {
             this.currentValue = (this.value === undefined || this.value === null) ? '' : (this.mask ? this.maskValue(this.value) : this.value)
             if (this.required && !this.currentValue) {
@@ -448,7 +448,7 @@
     }
 </script>
 
-<style lang='less' rel="stylesheet/less">
+<style lang='less' type="text/less" rel="stylesheet/less">
     @import '../../common/style/widget/weui-cell/weui-access.less';
     @import '../../common/style/widget/weui-cell/weui-cell_global.less';
     @import '../../common/style/widget/weui-cell/weui-form/weui-form_common.less';

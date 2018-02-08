@@ -54,7 +54,7 @@
     }
 </script>
 
-<style lang='less' type="text/less" scoped>
+<style lang='less' type="text/less" rel="stylesheet/less">
     @import "../../common/style/widget/weui-button/weui-button";
     @import "../../common/style/widget/weui-loading/weui-loading";
 

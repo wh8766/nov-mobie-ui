@@ -91,7 +91,7 @@
     }
 </script>
 
-<style lang='less' type="text/less" scoped>
+<style lang='less' type="text/less" rel="stylesheet/less" scoped>
     .flud-slide {
         height: 150px;
         overflow: hidden;
