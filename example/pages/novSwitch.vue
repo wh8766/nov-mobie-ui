@@ -1,6 +1,6 @@
 <template>
     <div>
-        <group :title="('Basic Usage')">
+        <group :title="'基本使用'">
             <nov-switch>默认 false</nov-switch>
             <nov-switch :inline-desc="value1 + ''" v-model="value1">默认 true</nov-switch>
         </group>
