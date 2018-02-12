@@ -147,11 +147,12 @@
     }
 
     .weui-cell-justify {
+        display: block;
         height: 1.5em;
         &&:after {
             content: ".";
             display: inline-block;
-            // width: 100%;
+            width: 100%;
             overflow: hidden;
             height: 0;
         }

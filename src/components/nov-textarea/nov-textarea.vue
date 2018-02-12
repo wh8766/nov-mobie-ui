@@ -143,7 +143,7 @@
             },
             labelClass () {
                 return {
-                    // 'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
+                    'weui-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
                 }
             }
         },
@@ -173,5 +173,17 @@
 
     .weui-x-textarea.weui-cell {
         align-items: flex-start;
+    }
+
+    .weui-cell-justify {
+        display: block;
+        height: 1.5em;
+        &&:after {
+            content: ".";
+            display: inline-block;
+            width: 100%;
+            overflow: hidden;
+            height: 0;
+        }
     }
 </style>
