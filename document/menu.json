@@ -1,0 +1,98 @@
+[
+    {
+        "name": "Demo Group",
+        "type": "group",
+        "children": [
+            {
+                "name": "demo"
+            }
+        ]
+    },
+    {
+        "name": "布局 Layout",
+        "type": "group",
+        "children": []
+    },
+    {
+        "name": "操作反馈 Feedback",
+        "type": "group",
+        "children": [
+            {
+                "name": "feedback"
+            },
+            {
+                "name": "loading"
+            }
+        ]
+    },
+    {
+        "name": "数据展示 Data show",
+        "type": "group",
+        "children": [
+            {
+                "name": "slide"
+            },
+            {
+                "name": "preview"
+            }
+        ]
+    },
+    {
+        "name": "表单 Form",
+        "type": "group",
+        "children": [
+            {
+                "name": "button"
+            },
+            {
+                "name": "form"
+            },
+            {
+                "name": "upload"
+            },
+            {
+                "name": "cell"
+            },
+            {
+                "name": "novTextarea"
+            },
+            {
+                "name": "checker"
+            },
+            {
+                "name": "checklist"
+            },
+            {
+                "name": "novInput"
+            },
+            {
+                "name": "novSwitch"
+            },
+            {
+                "name": "toast"
+            }
+        ]
+    },
+
+    {
+        "name": "其他 Other",
+        "type": "group",
+        "children": [
+            {
+                "name": "other"
+            }
+        ]
+    },
+    {
+        "name": "业务组件 Business",
+        "type": "group",
+        "children": [
+            {
+                "name": "scratch"
+            },
+            {
+                "name": "lottery"
+            }
+        ]
+    }
+]
