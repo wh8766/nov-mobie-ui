@@ -5,33 +5,33 @@
 ### 示例
 
 - 例子1
-```javascript
-let docRoutes = []
-menu.forEach(({children}) => {
-    children.forEach(({name}) => {
-        docRoutes.push({
-            path: `${name}`,
-            name: `doc-${name}`,
-            component: resolve => require([`../docs/${name}.md`], resolve)
+    ```javascript
+    let docRoutes = []
+    menu.forEach(({children}) => {
+        children.forEach(({name}) => {
+            docRoutes.push({
+                path: `${name}`,
+                name: `doc-${name}`,
+                component: resolve => require([`../docs/${name}.md`], resolve)
+            })
         })
     })
-})
-```
+    ```
 
 - 例子2
-```javascript
-const router = new VueRouter({
-    linkActiveClass: 'active',
-    routes,
-    scrollBehavior (to, from, savedPosition) {
-        if (savedPosition) {
-            return savedPosition
-        } else {
-            return { x: 0, y: 0 }
+    ```javascript
+    const router = new VueRouter({
+        linkActiveClass: 'active',
+        routes,
+        scrollBehavior (to, from, savedPosition) {
+            if (savedPosition) {
+                return savedPosition
+            } else {
+                return { x: 0, y: 0 }
+            }
         }
-    }
-})
-```
+    })
+    ```
 
 ### Props 配置
 
