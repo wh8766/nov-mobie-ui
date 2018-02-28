@@ -1,15 +1,14 @@
 <template>
     <div>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
+        <nav id="nav" class="navbar navbar-default navbar-static-top">
+            <div class="container">
                 <div class="navbar-header">
                     <router-link class="navbar-brand" to="/">
-                        Nov UI 文档
+                        <img alt="Brand" src="./assets/image/logo-open.png">
+                        Nov UI
                     </router-link>
                 </div>
-
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-right">
                     <router-link to="/" tag="li" exact>
                         <a>首页</a>
                     </router-link>
@@ -20,9 +19,14 @@
                         <a>例子</a>
                     </router-link>
                 </ul>
-            </div><!-- /.container-fluid -->
+            </div>
         </nav>
+
         <router-view></router-view>
+
+        <footer>
+            <p>Nov UI, Copy right Lenovo SLS STC.</p>
+        </footer>
     </div>
 </template>
 

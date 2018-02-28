@@ -3,7 +3,7 @@
         <h2>这里是例子</h2>
         <div class="well">
             <div class="phone">
-                <iframe src="/index.html" frameborder="0"></iframe>
+                <iframe src="/example.html" frameborder="0"></iframe>
             </div>
         </div>
     </div>
