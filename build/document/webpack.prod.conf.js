@@ -21,7 +21,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     devtool: false,
     output: {
         path: path.resolve(__dirname, '../../docs'),
-        publicPath: '/nov-mobile-ui/',
+        publicPath: './',
         filename: utils.assetsPath('js/[name].[chunkhash].js'),
         chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },

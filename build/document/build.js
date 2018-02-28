@@ -11,7 +11,7 @@ var webpackConfig = require('./webpack.prod.conf')
 var spinner = ora('building for document production...')
 spinner.start()
 
-rm(path.resolve(__dirname, '../docs'), err => {
+rm(path.resolve(__dirname, '../../docs'), err => {
   if (err) {
     throw err
   }
