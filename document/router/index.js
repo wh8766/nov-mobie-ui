@@ -33,6 +33,7 @@ const routes = [
     },
     {
         path: '/doc',
+        redirect: '/doc/demo',
         name: 'doc',
         component: doc,
         children: [

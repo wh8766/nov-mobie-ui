@@ -1,11 +1,11 @@
 <template>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <ul v-for="group in menu" class="nav-container">
                     <li><h4>{{group.name}}</h4></li>
                     <li v-for="m in group.children">
-                        <router-link :to="'/doc/'+m.name">{{m.name}}</router-link>
+                        <router-link :to="'/doc/'+m.name">{{m.title || m.name}}</router-link>
                     </li>
                 </ul>
             </div>
@@ -31,11 +31,19 @@
 
 <style lang='less' type="text/less">
     .nav-container {
+        padding-left: 10px;
+
         li {
             list-style: none;
+            font-size: 16px;
+            line-height: 1.5;
         }
     }
     .doc-container {
+        /*h2, h3, h4 {*/
+            /*margin-left: -10px;*/
+        /*}*/
+
         table {
             background-color: white;
         }
