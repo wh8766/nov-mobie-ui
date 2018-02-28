@@ -9,7 +9,7 @@
         <group :title="('使用 is-link 显示右边箭头')">
             <cell is-link>
                 <span slot="title" style="color:green;"><span
-                        style="vertical-align:middle;">{{ ('重要消息') }}</span> </span>
+                        style="vertical-align:middle;">重要消息</span> </span>
             </cell>
             <cell :title="('通用')" is-link>
                 <img slot="icon" width="20" style="display:block;margin-right:5px;"

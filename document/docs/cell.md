@@ -1,11 +1,7 @@
 ## 组件名称
 
- `Group`是一个特殊的表单组件，主要用于将表单分组，单个表单元素也算一组。常见的表单组件都`必须`作为`Group`的子组件。
-    属于`Group`子组件的有：Cell, novInput, novTextarea, novSwitch
-## 组件名称
-
- `Group`是一个特殊的表单组件，主要用于将表单分组，单个表单元素也算一组。常见的表单组件都`必须`作为`Group`的子组件。
-        属于`Group`子组件的有：Cell, novInput, novTextarea, novSwitch
+ `cell`表格单元行，复杂内容以slots传入。
+ `必须`作为`Group`的子组件。
 
 ### 示例
 
@@ -18,16 +14,17 @@
 
 - 自定义属性
     ```html
-    <group 
-        label-align="justify" 
-        label-width="5.5em"
-        title="这是分组标题"
-        titleColor="red"
-        label-width="5.5em"
-        labelAlign="left"
-        gutter="10em"
-        label-margin-right="2em">
-        <nov-input></nov-input>
+    <group>
+       <cell 
+          title="title" 
+          value="value"
+          inline-desc="cell描述"
+          is-link
+          primary="title"
+          value-align="left"
+          :border-intent="false"
+          disabled
+       ></cell>
     </group>
     ```
     
@@ -50,7 +47,6 @@
 ### 事件
 
 | 参数 | 说明 | 参数1 | 参数2 |
-| - | - | - | - |
 
 
 
