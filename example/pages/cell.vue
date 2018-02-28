@@ -3,7 +3,7 @@
         <group label-align="justify" label-width="5.5em" label-margin-right="2em">
             <cell :title="'我的账号'" :value="('Protected')" @click.native="onClick"></cell>
             <cell title="钱" @click.native="onClick" :value="money"></cell>
-            <cell :title="('Withdraw')" disabled is-link></cell>
+            <cell :title="'提现'" disabled is-link></cell>
         </group>
 
         <group :title="('使用 is-link 显示右边箭头')">

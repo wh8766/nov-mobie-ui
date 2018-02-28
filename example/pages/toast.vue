@@ -10,13 +10,13 @@
         <toast v-model="showPositionValue" type="text" :time="800" is-show-mask text="基本使用" :position="position">
             基本使用
         </toast>
-        <group title="ok">
-            <nov-switch v-model="show1">一般使用</nov-switch>
-            <nov-switch v-model="show2">type为text</nov-switch>
-            <nov-switch v-model="show3">type为cancel</nov-switch>
-            <nov-switch v-model="show4">type为warn</nov-switch>
-            <nov-switch v-model="show5">显示时间一秒</nov-switch>
-            <nov-switch v-model="show6">很长文字</nov-switch>
+        <group>
+            <nov-switch  v-model="show1">一般使用</nov-switch>
+            <nov-switch  v-model="show2">type为text</nov-switch>
+            <nov-switch  v-model="show3">type为cance</nov-switch>
+            <nov-switch  v-model="show4">type为warn</nov-switch>
+            <nov-switch  v-model="show5">显示时间一秒</nov-switch>
+            <nov-switch  v-model="show6">很长文字</nov-switch>
         </group>
 
         <toast v-model="show1" @on-hide="onHide">Basic Usage</toast>
@@ -26,9 +26,9 @@
         <toast v-model="show5" :time="1000">time:1s</toast>
         <toast v-model="show6" type="text" width="20em">show me code</toast>
 
-        <group title="prop:text">
-            <nov-switch v-model="show7">type为success</nov-switch>
-            <nov-switch v-model="show8">type为text</nov-switch>
+        <group :title="'prop:text'">
+            <nov-switch  v-model="show7">type为success</nov-switch>
+            <nov-switch  v-model="show8">type为text</nov-switch>
         </group>
 
         <toast v-model="show7" text="Hello World"></toast>
@@ -39,16 +39,15 @@
 <script>
     import NovPage from '../components/nov-page'
     import NovButton from '@/components/button/button'
-    import NovSwitch from '@/components/nov-switch/nov-switch'
+    import novSwitch from '@/components/nov-switch/nov-switch'
     import Toast from '@/components/toast/index'
     import Group from '@/components/group/group'
-
     export default {
         components: {
             NovPage,
             Toast,
             Group,
-            NovSwitch ,
+            novSwitch ,
             NovButton
         },
         methods: {
