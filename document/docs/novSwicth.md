@@ -1,4 +1,4 @@
-## 组件名称
+## NovSwitch
 
  `novSwitch`开关
 
@@ -37,5 +37,6 @@
 ### 事件
 
 | 参数 | 说明 | 参数1 | 参数2 |
+| - | - | - | - |
 | on-change | 值变化时触发 | currentValue | - |
 | on-click | 点击组件时触发 | - | - |

@@ -1,6 +1,6 @@
-## 组件名称
+## NovTextarea
 
- `novTextarea` textarea加强版，提供计数，自适应高度及自定义大小等功能
+`novTextarea` textarea加强版，提供计数，自适应高度及自定义大小等功能
 
 ### 示例
 
@@ -46,6 +46,7 @@
 ### 事件
 
 | 参数 | 说明 | 参数1 | 参数2 |
+| - | - | - | - |
 | on-focus | 聚焦 | - | - |
 | on-blur | 失焦 | - | - |
 | on-change | watch value | newValue | - |

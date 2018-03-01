@@ -1,4 +1,4 @@
-## 组件名称
+## NovInput
 
  `novInput` 输入框 提供mask，debounce等功能 
 
@@ -53,6 +53,7 @@
 ### 事件
 
 | 参数 | 说明 | 参数1 | 参数2 |
+| - | - | - | - |
 | on-focus | 聚焦 | - | - |
 | on-blur | 失焦 | - | - |
 | on-change | watch value | newValue | - |

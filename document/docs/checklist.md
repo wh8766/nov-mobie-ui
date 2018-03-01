@@ -1,4 +1,4 @@
-## 组件名称
+## Checklist
 
  `checklist` 表单选框
 
@@ -40,5 +40,6 @@
 ### 事件
 
 | 参数 | 说明 | 参数1 | 参数2 |
+| - | - | - | - |
 | on-change | 值变化时触发 | value | label |
 | getFullValue | 获取值和对应的显示文字 | - | - |

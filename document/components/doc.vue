@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <ul v-for="group in menu" class="nav-container">
+            <div class="col-md-3 nav-container">
+                <ul v-for="group in menu" class="group-container">
                     <li><h4>{{group.name}}</h4></li>
                     <li v-for="m in group.children">
                         <router-link :to="'/doc/'+m.name">{{m.title || m.name}}</router-link>
@@ -31,12 +31,32 @@
 
 <style lang='less' type="text/less">
     .nav-container {
+        padding-top: 15px;
+    }
+    .group-container {
         padding-left: 10px;
+
+        h4 {
+            font-size: 16px;
+            color: lightslategrey;
+        }
 
         li {
             list-style: none;
-            font-size: 16px;
-            line-height: 1.5;
+            font-size: 14px;
+            line-height: 1.8;
+
+            a {
+                display: block;
+                padding-left: 20px;
+            }
+            a.active {
+                font-weight: bold;
+                background-color: #f5f5f9;
+            }
+            a:focus, a:hover {
+                text-decoration: none;
+            }
         }
     }
     .doc-container {
