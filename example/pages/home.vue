@@ -8,13 +8,9 @@
         <section>
             <h2>布局 Layout</h2>
             <ul>
-                <li><a href="">color</a></li>
-                <li>
-                    <router-link to="/loading">loading</router-link>
-                </li>
-                <!--<li>-->
-                    <!--<router-link to="/entry-loading">enter loading</router-link>-->
-                <!--</li>-->
+                <li><a href="">tab</a></li>
+                <li><a href="">navigation</a></li>
+                <li><a href="">navigation tab</a></li>
             </ul>
         </section>
         <section>
@@ -23,6 +19,9 @@
                 <li>
                     <router-link to="/feedback">feedback</router-link>
                 </li>
+                <li>
+                    <router-link to="/loading">loading</router-link>
+                </li>
             </ul>
         </section>
 
@@ -30,7 +29,9 @@
             <h2>数据展示 Data show</h2>
             <ul>
                 <li><a href="">scroll loading</a></li>
-                <li><a href="">slide</a></li>
+                <li>
+                    <router-link to="/slide">slide</router-link>
+                </li>
                 <li><a href="">index list</a></li>
                 <li>
                     <router-link to="/preview">preview</router-link>
@@ -50,6 +51,27 @@
                 <li>
                     <router-link to="/upload">upload</router-link>
                 </li>
+                <li>
+                    <router-link to="/cell">cell</router-link>
+                </li>
+                <li>
+                    <router-link to="/novTextarea">novTextarea</router-link>
+                </li>
+                <li>
+                    <router-link to="/checker">checker</router-link>
+                </li>
+                <li>
+                    <router-link to="/checklist">checklist</router-link>
+                </li>
+                <li>
+                    <router-link to="/novInput">novInput</router-link>
+                </li>
+                <li>
+                    <router-link to="/novSwitch">novSwitch</router-link>
+                </li>
+                <li>
+                    <router-link to="/toast">toast</router-link>
+                </li>
             </ul>
         </section>
 
@@ -67,6 +89,9 @@
             <ul>
                 <li>
                     <router-link to="/scratch">scratch</router-link>
+                </li>
+                <li>
+                    <router-link to="/lottery">lottery</router-link>
                 </li>
             </ul>
         </section>

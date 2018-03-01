@@ -15,7 +15,8 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
     entry: {
-        app: './example/main.js'
+        app: './example/main.js',
+        doc: './document/main.js'
     },
     module: {
         rules: utils.styleLoaders({sourceMap: config.dev.cssSourceMap, usePostCSS: true})
@@ -57,8 +58,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         new webpack.NoEmitOnErrorsPlugin(),
         // https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
-            filename: 'index.html',
+            filename: 'example.html',
             template: './example/index.html',
+            chunks: ['app', 'vendor', 'manifest'],
+            inject: true
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './document/index.html',
+            chunks: ['doc', 'vendor', 'manifest'],
             inject: true
         }),
         // copy custom static assets

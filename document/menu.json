@@ -1,0 +1,102 @@
+[
+    {
+        "name": "快速开始 Starter",
+        "type": "document",
+        "children": [
+            {
+                "name": "demo",
+                "title": "示例文档"
+            },
+            {
+                "name": "start",
+                "title": "开始开发"
+            }
+        ]
+    },
+    {
+        "name": "布局 Layout",
+        "type": "components",
+        "children": []
+    },
+    {
+        "name": "操作反馈 Feedback",
+        "type": "components",
+        "children": [
+            {
+                "name": "feedback"
+            },
+            {
+                "name": "loading"
+            }
+        ]
+    },
+    {
+        "name": "数据展示 Data show",
+        "type": "components",
+        "children": [
+            {
+                "name": "slide"
+            },
+            {
+                "name": "preview"
+            }
+        ]
+    },
+    {
+        "name": "表单 Form",
+        "type": "components",
+        "children": [
+            {
+                "name": "button"
+            },
+            {
+                "name": "form"
+            },
+            {
+                "name": "upload"
+            },
+            {
+                "name": "cell"
+            },
+            {
+                "name": "novTextarea"
+            },
+            {
+                "name": "checker"
+            },
+            {
+                "name": "checklist"
+            },
+            {
+                "name": "novInput"
+            },
+            {
+                "name": "novSwitch"
+            },
+            {
+                "name": "toast"
+            }
+        ]
+    },
+    {
+        "name": "其他 Other",
+        "type": "components",
+        "children": [
+            {
+                "name": "other"
+            }
+        ]
+    },
+    {
+        "name": "业务组件 Business",
+        "type": "components",
+        "children": [
+            {
+                "name": "scratch"
+            },
+            {
+                "name": "lottery"
+            }
+        ]
+    }
+]

@@ -64,6 +64,6 @@
     }
 </script>
 
-<style lang='less' type="text/less" scoped>
+<style lang='less' type="text/less" rel="stylesheet/less" scoped>
 
 </style>

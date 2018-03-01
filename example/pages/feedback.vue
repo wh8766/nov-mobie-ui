@@ -60,9 +60,9 @@
             /* loading */
             document.querySelector('#loadingBtn').addEventListener('click', function () {
                 var loading = weui.loading('加载中');
-                // setTimeout(function () {
-                //     loading.hide();
-                // }, 3000);
+                setTimeout(function () {
+                    loading.hide();
+                }, 3000);
             });
 
 
@@ -71,30 +71,30 @@
                 weui.actionSheet([
                     {
                         label: '拍照',
-                        onClick: function () {
+                        onClick() {
                             console.log('拍照');
                         }
                     }, {
                         label: '从相册选择',
-                        onClick: function () {
+                        onClick() {
                             console.log('从相册选择');
                         }
                     }, {
                         label: '其他',
-                        onClick: function () {
+                        onClick() {
                             console.log('其他');
                         }
                     }
                 ], [
                     {
                         label: '取消',
-                        onClick: function () {
+                        onClick() {
                             console.log('取消');
                         }
                     }
                 ], {
                     className: "custom-classname",
-                    onClose: function () {
+                    onClose() {
                         console.log('关闭');
                     }
                 });
@@ -114,7 +114,7 @@
 
 
             /* picker */
-// 普通选择器
+            // 普通选择器
             document.querySelector('#pickerBtn').addEventListener('click', function () {
                 weui.picker([{
                     label: '飞机票',
@@ -162,7 +162,7 @@
                 });
             });
 
-// 时间选择器
+            // 时间选择器
             document.querySelector('#datePickerBtn').addEventListener('click', function () {
                 weui.datePicker({
                     start: '2016-12-29',
@@ -192,7 +192,7 @@
                 });
             });
 
-// 多列选择器
+            // 多列选择器
             document.querySelector('#multiPickerBtn').addEventListener('click', function () {
                 weui.picker([
                     {
@@ -231,7 +231,7 @@
                 });
             });
 
-// 级联选择器
+            // 级联选择器
             document.querySelector('#cascadePickerBtn').addEventListener('click', function () {
                 weui.picker([
                     {

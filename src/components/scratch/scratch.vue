@@ -136,7 +136,7 @@
     }
 </script>
 
-<style lang='less' type="text/less">
+<style lang='less' type="text/less" rel="stylesheet/less">
     .nov-scratch {
         position: relative;
 
