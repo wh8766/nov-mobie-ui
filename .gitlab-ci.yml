@@ -1,11 +1,19 @@
-# This file is a template, and might need editing before it works on your project.
-# Full project: https://gitlab.com/pages/plain-html
+# requiring the environment of xyzphp
+image: xyzphp-ci
+
+# add 'node_modules' to cache for speeding up builds
+cache:
+  paths:
+    - node_modules/ # Node modules and dependencies
+
 pages:
   stage: deploy
   script:
-   - mkdir public
+  - cnpm install
+  - npm run doc-build
   artifacts:
     paths:
     - docs
   only:
   - master
+  - dev
