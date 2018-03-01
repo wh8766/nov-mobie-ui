@@ -1,9 +1,6 @@
 <template>
     <div>
-        <div class="video-panel">
-            <!--<video src="../assets/clouds.mp4" loop muted autoplay playsinline></video>-->
-            <video src="https://cms-origin-cn.battle.net/cms/template_resource/DYWJ2Y5RGBN11509741758093.mp4" loop muted autoplay playsinline></video>
-        </div>
+        <div class="bg-panel"></div>
 
         <div class="container-fluid main">
             <div class="container">
@@ -70,25 +67,16 @@
 </script>
 
 <style type="text/less" lang="less" scoped>
-    .video-panel {
+    .bg-panel {
         position: fixed;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
         overflow: hidden;
-    }
 
-    video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        height: auto;
-        min-height: 100%;
-        min-width: 100%;
-        width: auto;
+        background-image: url("https://picsum.photos/1920/1200/?random");
+        background-repeat: no-repeat;
     }
 
     .main {
