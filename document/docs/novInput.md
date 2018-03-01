@@ -1,6 +1,6 @@
 ## 组件名称
 
- `checklist` 表单选框
+ `novInput` 输入框 提供mask，debounce等功能 
 
 ### 示例
 
