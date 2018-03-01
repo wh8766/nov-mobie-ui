@@ -11,9 +11,10 @@ pages:
   script:
   - cnpm install
   - npm run doc-build
+  - mv docs public
   artifacts:
     paths:
-    - docs
+    - public
   only:
   - master
   - dev
