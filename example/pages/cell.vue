@@ -3,13 +3,13 @@
         <group label-align="justify" label-width="5.5em" label-margin-right="2em">
             <cell :title="'我的账号'" :value="('Protected')" @click.native="onClick"></cell>
             <cell title="钱" @click.native="onClick" :value="money"></cell>
-            <cell :title="('Withdraw')" disabled is-link></cell>
+            <cell :title="'提现'" disabled is-link></cell>
         </group>
 
         <group :title="('使用 is-link 显示右边箭头')">
             <cell is-link>
                 <span slot="title" style="color:green;"><span
-                        style="vertical-align:middle;">{{ ('重要消息') }}</span> </span>
+                        style="vertical-align:middle;">重要消息</span> </span>
             </cell>
             <cell :title="('通用')" is-link>
                 <img slot="icon" width="20" style="display:block;margin-right:5px;"

@@ -3,11 +3,11 @@
         <divider>单选，默认不选中任何项</divider>
         <div class="box">
             <checker v-model="demo1" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
-                <checker-item value="1">{{ ('潘') }}</checker-item>
-                <checker-item value="2">{{ ('闲') }}</checker-item>
-                <checker-item value="3">{{ ('邓') }}</checker-item>
-                <checker-item value="4">{{ ('小') }}</checker-item>
-                <checker-item value="5">{{ ('驴') }}</checker-item>
+                <checker-item value="1">潘</checker-item>
+                <checker-item value="2">闲</checker-item>
+                <checker-item value="3">邓</checker-item>
+                <checker-item value="4">小</checker-item>
+                <checker-item value="5">驴</checker-item>
             </checker>
             <br>
             <span>{{currentValue}}: {{ demo1 }}</span>
@@ -17,11 +17,11 @@
         <divider>radioRequired</divider>
         <div class="box">
             <checker v-model="demo1Required" radio-required default-item-class="demo1-item" selected-item-class="demo1-item-selected">
-                <checker-item value="1">{{ ('潘') }}</checker-item>
-                <checker-item value="2">{{ ('闲') }}</checker-item>
-                <checker-item value="3">{{ ('邓') }}</checker-item>
-                <checker-item value="4">{{ ('小') }}</checker-item>
-                <checker-item value="5">{{ ('驴') }}</checker-item>
+                <checker-item value="1">潘</checker-item>
+                <checker-item value="2">闲</checker-item>
+                <checker-item value="3">邓</checker-item>
+                <checker-item value="4">小</checker-item>
+                <checker-item value="5">驴</checker-item>
             </checker>
             <br>
             <span>{{currentValue}}: {{ demo1Required }}</span>
@@ -73,9 +73,9 @@
         <divider>多选</divider>
         <div class="box">
             <checker v-model="demo1Checkbox" type="checkbox" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
-                <checker-item :value="1">{{ ('白') }}</checker-item>
-                <checker-item :value="2">{{ ('富') }}</checker-item>
-                <checker-item :value="3">{{ ('美') }}</checker-item>
+                <checker-item :value="1">白</checker-item>
+                <checker-item :value="2">富</checker-item>
+                <checker-item :value="3">美</checker-item>
             </checker>
             <br>
             <span>{{currentValue}}: {{demo1Checkbox}}</span>

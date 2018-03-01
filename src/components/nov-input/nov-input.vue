@@ -479,5 +479,17 @@
         padding-right: 0;
         padding-bottom: 0;
     }
+
+    .weui-cell-justify {
+        display: block;
+        height: 1.5em;
+        &&:after {
+            content: ".";
+            display: inline-block;
+            width: 100%;
+            overflow: hidden;
+            height: 0;
+        }
+    }
 </style>
 

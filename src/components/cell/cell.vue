@@ -1,14 +1,11 @@
 <template>
-    <div
-            class="weui-cell"
-            :class="{
-      'weui-tap-active': isLink || !!link,
-      'weui-cell_access': isLink || !!link,
-      'weui-cell-no-border-intent': !borderIntent,
-      'weui-cell-disabled': disabled
-    }"
-            :style="style"
-            @click="onClick">
+    <div class="weui-cell" :class="{
+        'weui-tap-active': isLink || !!link,
+        'weui-cell_access': isLink || !!link,
+        'weui-cell-no-border-intent': !borderIntent,
+        'weui-cell-disabled': disabled}"
+        :style="style"
+        @click="onClick">
         <div class="weui-cell__hd">
             <slot name="icon"></slot>
         </div>
@@ -147,11 +144,12 @@
     }
 
     .weui-cell-justify {
+        display: block;
         height: 1.5em;
         &&:after {
             content: ".";
             display: inline-block;
-            // width: 100%;
+            width: 100%;
             overflow: hidden;
             height: 0;
         }

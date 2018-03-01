@@ -82,7 +82,9 @@
             this.handleChangeEvent = true
             if (this.value) {
                 this.currentValue = this.value
-                this.tempValue = this.value ? this.value[0] : ''
+                if (this.isRadio) {
+                    this.tempValue = this.isRadio ? this.value[0] : this.value
+                }
             }
             if (this.randomOrder) {
                 this.currentOptions = shuffle(this.options)
