@@ -30,7 +30,7 @@
         props: {
             bgImage: {
                 type: String,
-                default: '../../static/logo-open.png'
+                default: 'https://picsum.photos/375/200/?random'
             },
             bgColor: {
                 type: String,

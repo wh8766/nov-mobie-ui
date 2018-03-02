@@ -77,11 +77,12 @@
 
         background-image: url("https://picsum.photos/1920/1200/?random");
         background-repeat: no-repeat;
+        background-position: center center;
     }
 
     .main {
-        height: 280px;
-        padding-top: 50px;
+        height: 330px;
+        padding-top: 100px;
         color: white;
         text-shadow: 1px 1px 1px #333;
     }

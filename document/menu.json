@@ -4,19 +4,29 @@
         "type": "document",
         "children": [
             {
-                "name": "demo",
-                "title": "示例文档"
-            },
-            {
                 "name": "start",
                 "title": "开始开发"
+            },
+            {
+                "name": "join",
+                "title": "参与开发"
             }
         ]
     },
     {
         "name": "布局 Layout",
         "type": "components",
-        "children": []
+        "children": [
+            {
+                "name": "tab"
+            },
+            {
+                "name": "navigation"
+            },
+            {
+                "name": "navigation-tab"
+            }
+        ]
     },
     {
         "name": "操作反馈 Feedback",

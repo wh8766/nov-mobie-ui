@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import home from '../components/home'
 import doc from '../components/doc'
 import example from '../components/example'
+import demo from '../docs/demo.md'
 
 import menu from '../menu'
 
@@ -15,7 +16,10 @@ menu.forEach(({children}) => {
         docRoutes.push({
             path: `${name}`,
             name: `doc-${name}`,
-            component: resolve => require([`../docs/${name}.md`], resolve)
+            component: resolve => require([`../docs/${name}.md`], resolve, error => {
+                // TODO 尚未开发或者编辑的内容
+                resolve(demo)
+            })
         })
     })
 })
@@ -33,7 +37,7 @@ const routes = [
     },
     {
         path: '/doc',
-        redirect: '/doc/demo',
+        redirect: '/doc/start',
         name: 'doc',
         component: doc,
         children: [
