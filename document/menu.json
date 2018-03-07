@@ -1,21 +1,36 @@
 [
     {
-        "name": "Demo Group",
-        "type": "group",
+        "name": "快速开始 Starter",
+        "type": "document",
         "children": [
             {
-                "name": "demo"
+                "name": "start",
+                "title": "开始开发"
+            },
+            {
+                "name": "join",
+                "title": "参与开发"
             }
         ]
     },
     {
         "name": "布局 Layout",
-        "type": "group",
-        "children": []
+        "type": "components",
+        "children": [
+            {
+                "name": "tab"
+            },
+            {
+                "name": "navigation"
+            },
+            {
+                "name": "navigation-tab"
+            }
+        ]
     },
     {
         "name": "操作反馈 Feedback",
-        "type": "group",
+        "type": "components",
         "children": [
             {
                 "name": "feedback"
@@ -27,7 +42,7 @@
     },
     {
         "name": "数据展示 Data show",
-        "type": "group",
+        "type": "components",
         "children": [
             {
                 "name": "slide"
@@ -39,7 +54,7 @@
     },
     {
         "name": "表单 Form",
-        "type": "group",
+        "type": "components",
         "children": [
             {
                 "name": "button"
@@ -73,10 +88,9 @@
             }
         ]
     },
-
     {
         "name": "其他 Other",
-        "type": "group",
+        "type": "components",
         "children": [
             {
                 "name": "other"
@@ -85,7 +99,7 @@
     },
     {
         "name": "业务组件 Business",
-        "type": "group",
+        "type": "components",
         "children": [
             {
                 "name": "scratch"

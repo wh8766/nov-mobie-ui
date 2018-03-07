@@ -1,6 +1,7 @@
-## 组件名称
+## Cell
 
  `cell`表格单元行，复杂内容以slots传入。
+ 
  `必须`作为`Group`的子组件。
 
 ### 示例
@@ -43,10 +44,6 @@
 | arrow-direction | 右侧箭头方向，可选有 up down | String | - | down |
 | disabled | 对 label 和箭头(如果使用 is-link)显示不可操作样式 | Boolean | - | false |
 | align-items | align-items 样式值 | String | - | '' |
-
-### 事件
-
-| 参数 | 说明 | 参数1 | 参数2 |
 
 
 

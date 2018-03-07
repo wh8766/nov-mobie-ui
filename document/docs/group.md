@@ -1,7 +1,8 @@
-## 组件名称
+## Group
 
  `Group`是一个特殊的表单组件，主要用于将表单分组，单个表单元素也算一组。常见的表单组件都`必须`作为`Group`的子组件。
-        属于`Group`子组件的有：Cell, novInput, novTextarea, novSwitch
+ 
+ 属于`Group`子组件的有：Cell, novInput, novTextarea, novSwitch
 
 ### 示例
 
@@ -38,8 +39,3 @@
 | labelAlign | 为子元素设定统一对齐方式 | String | - | '' |
 | labelMarginRight | 为子元素设定统一的右边margin | String | - | '' |
 | gutter | 设定group的上边距，只能用于没有标题时 | String | - | '' |
-
-### 事件
-
-| 参数 | 说明 | 参数1 | 参数2 |
-| - | - | - | - |

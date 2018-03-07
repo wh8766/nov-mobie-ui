@@ -1,17 +1,15 @@
 <template>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
-                <ul v-for="group in menu" class="nav-container">
-                    <li><h4>{{group.name}}</h4></li>
-                    <li v-for="m in group.children">
-                        <router-link :to="'/doc/'+m.name">{{m.name}}</router-link>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-9">
-                <router-view class="doc-container"></router-view>
-            </div>
+    <div class="main container">
+        <div class="nav-container">
+            <ul v-for="group in menu" class="group-container">
+                <li><h4>{{group.name}}</h4></li>
+                <li v-for="m in group.children">
+                    <router-link :to="'/doc/'+m.name">{{m.title || m.name}}</router-link>
+                </li>
+            </ul>
+        </div>
+        <div class="doc-container">
+            <router-view></router-view>
         </div>
     </div>
 </template>
@@ -30,12 +28,45 @@
 </script>
 
 <style lang='less' type="text/less">
+    .main {
+        padding-top: 50px;
+    }
     .nav-container {
+        padding-top: 15px;
+        position: fixed;
+        top: 50px;
+        bottom: 0;
+        width: 200px;
+    }
+    .group-container {
+        padding-left: 10px;
+
+        h4 {
+            font-size: 16px;
+            color: lightslategrey;
+        }
+
         li {
             list-style: none;
+            font-size: 14px;
+            line-height: 1.8;
+
+            a {
+                display: block;
+                padding-left: 20px;
+            }
+            a.active {
+                font-weight: bold;
+                background-color: #f5f5f9;
+            }
+            a:focus, a:hover {
+                text-decoration: none;
+            }
         }
     }
     .doc-container {
+        margin-left: 220px;
+
         table {
             background-color: white;
         }

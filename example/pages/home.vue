@@ -8,13 +8,9 @@
         <section>
             <h2>布局 Layout</h2>
             <ul>
-                <li><a href="">color</a></li>
-                <li>
-                    <router-link to="/loading">loading</router-link>
-                </li>
-                <!--<li>-->
-                    <!--<router-link to="/entry-loading">enter loading</router-link>-->
-                <!--</li>-->
+                <li><a href="">tab</a></li>
+                <li><a href="">navigation</a></li>
+                <li><a href="">navigation tab</a></li>
             </ul>
         </section>
         <section>
@@ -22,6 +18,9 @@
             <ul>
                 <li>
                     <router-link to="/feedback">feedback</router-link>
+                </li>
+                <li>
+                    <router-link to="/loading">loading</router-link>
                 </li>
             </ul>
         </section>
@@ -90,6 +89,9 @@
             <ul>
                 <li>
                     <router-link to="/scratch">scratch</router-link>
+                </li>
+                <li>
+                    <router-link to="/lottery">lottery</router-link>
                 </li>
             </ul>
         </section>

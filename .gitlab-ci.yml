@@ -1,0 +1,20 @@
+# requiring the environment of xyzphp
+image: xyzphp-ci
+
+# add 'node_modules' to cache for speeding up builds
+cache:
+  paths:
+    - node_modules/ # Node modules and dependencies
+
+pages:
+  stage: deploy
+  script:
+  - cnpm install
+  - npm run doc-build
+  - mv docs public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+  - dev
