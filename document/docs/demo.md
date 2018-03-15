@@ -1,6 +1,9 @@
+# 未完成的内容
+
 > Ops，这个组件的文档尚未编写，你可以通过下列方式加入到项目组，一起完善。
 
-- 项目地址：http://10.120.24.200/FE/nov-mobile-ui
+- 项目主页：[http://fe.g.lenovo.com.cn/nov-mobile-ui](http://fe.g.lenovo.com.cn/nov-mobile-ui)
+- 项目地址：[http://10.120.24.200/FE/nov-mobile-ui](http://10.120.24.200/FE/nov-mobile-ui)
 
 ## Demo(组件名称)
 

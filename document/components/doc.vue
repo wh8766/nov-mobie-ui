@@ -18,7 +18,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import menu from '../menu'
+    import menu from '../../config/menu'
 
     export default {
         name: "doc-index",

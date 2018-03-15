@@ -1,37 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 import weui from 'weui.js'
+
+import home from '../pages/home'
+import demo from '../pages/demo'
+import menu from '../../config/menu'
 
 Vue.use(VueRouter)
 
-import home from '../pages/home'
-
-let pageRoutes = [
-    'feedback',
-    'loading',
-    'form',
-    'slide',
-    'button',
-    'other',
-    'upload',
-    'scratch',
-    'preview',
-    'group',
-    'cell',
-    'novTextarea',
-    'checker',
-    'checklist',
-    'novInput',
-    'toast',
-    'novSwitch'
-].map(name => {
-    return {
-        path: `/${name}`,
-        name,
-        component: resolve => require([`../pages/${name}.vue`], resolve),
-        load: false
-    }
+let pageRoutes = []
+menu.forEach(({children}) => {
+    children.forEach(({name}) => {
+        pageRoutes.push({
+            path: `/${name}`,
+            name: `example-page-${name}`,
+            component: resolve => require([`../pages/${name}.vue`], resolve, error => {
+                // TODO 尚未开发或者编辑的内容
+                resolve(demo)
+            })
+        })
+    })
 })
 
 const routes = [

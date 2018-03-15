@@ -5,93 +5,11 @@
             <p>Lenovo Service 移动端组件库</p>
         </header>
 
-        <section>
-            <h2>布局 Layout</h2>
+        <section v-for="group in menu">
+            <h2>{{group.name}}</h2>
             <ul>
-                <li><a href="">tab</a></li>
-                <li><a href="">navigation</a></li>
-                <li><a href="">navigation tab</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>操作反馈 Feedback</h2>
-            <ul>
-                <li>
-                    <router-link to="/feedback">feedback</router-link>
-                </li>
-                <li>
-                    <router-link to="/loading">loading</router-link>
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>数据展示 Data show</h2>
-            <ul>
-                <li><a href="">scroll loading</a></li>
-                <li>
-                    <router-link to="/slide">slide</router-link>
-                </li>
-                <li><a href="">index list</a></li>
-                <li>
-                    <router-link to="/preview">preview</router-link>
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>表单 Form</h2>
-            <ul>
-                <li>
-                    <router-link to="/button">button</router-link>
-                </li>
-                <li>
-                    <router-link to="/form">form</router-link>
-                </li>
-                <li>
-                    <router-link to="/upload">upload</router-link>
-                </li>
-                <li>
-                    <router-link to="/cell">cell</router-link>
-                </li>
-                <li>
-                    <router-link to="/novTextarea">novTextarea</router-link>
-                </li>
-                <li>
-                    <router-link to="/checker">checker</router-link>
-                </li>
-                <li>
-                    <router-link to="/checklist">checklist</router-link>
-                </li>
-                <li>
-                    <router-link to="/novInput">novInput</router-link>
-                </li>
-                <li>
-                    <router-link to="/novSwitch">novSwitch</router-link>
-                </li>
-                <li>
-                    <router-link to="/toast">toast</router-link>
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>其他 Other</h2>
-            <ul>
-                <li>
-                    <router-link to="/other">other</router-link>
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>业务组件 Business</h2>
-            <ul>
-                <li>
-                    <router-link to="/scratch">scratch</router-link>
-                </li>
-                <li>
-                    <router-link to="/lottery">lottery</router-link>
+                <li v-for="item in group.children">
+                    <router-link :to="'/'+item.name">{{item.name}}</router-link>
                 </li>
             </ul>
         </section>
@@ -99,8 +17,15 @@
 </template>
 
 <script>
+    import menu from '../../config/menu'
+
     export default {
-        name: "home"
+        name: "example-home",
+        data() {
+            return {
+                menu: menu.filter(section => section.type === 'components')
+            }
+        },
     }
 </script>
 

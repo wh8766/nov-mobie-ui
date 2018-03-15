@@ -15,8 +15,9 @@
 - 刮刮自定义背景、事件、刮奖范围
 
     ```html
-    <nov-scratch :touchRadius="25"
-                 :activeBoundary="60"
+    <nov-scratch :touch-radius="25"
+                 :active-boundary="60"
+                 bg-image="./static/scratch-fg.jpg"
                  @on-image-load="onImageLoad"
                  @on-show="onShow"
                  @on-first="onFirst">

@@ -6,7 +6,7 @@ import doc from '../components/doc'
 import example from '../components/example'
 import demo from '../docs/demo.md'
 
-import menu from '../menu'
+import menu from '../../config/menu'
 
 Vue.use(VueRouter)
 
@@ -37,7 +37,7 @@ const routes = [
     },
     {
         path: '/doc',
-        redirect: '/doc/start',
+        redirect: '/doc/introduce',
         name: 'doc',
         component: doc,
         children: [

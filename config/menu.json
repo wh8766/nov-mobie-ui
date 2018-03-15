@@ -4,6 +4,10 @@
         "type": "document",
         "children": [
             {
+                "name": "introduce",
+                "title": "介绍"
+            },
+            {
                 "name": "start",
                 "title": "开始开发"
             },
