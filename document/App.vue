@@ -23,10 +23,6 @@
         </nav>
 
         <router-view></router-view>
-
-        <footer>
-            <p>Nov UI, Copy right Lenovo SLS STC.</p>
-        </footer>
     </div>
 </template>
 
@@ -51,5 +47,29 @@
         position: fixed;
         top: 0;
         width: 100%;
+        z-index: 10;
+    }
+
+    .navbar {
+        color: #333;
+        font-weight: bold;
+        opacity: 0.8;
+    }
+
+    .navbar-brand img {
+        float: left;
+        height: 30px;
+        margin-right: 10px;
+        margin-top: -5px;
+    }
+
+    footer {
+        text-align: center;
+        width: 100%;
+        padding: 20px;
+        z-index: 100;
+        position: relative;
+        text-shadow: 1px 1px 1px #333;
+        color: white;
     }
 </style>

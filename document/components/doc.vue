@@ -10,6 +10,9 @@
         </div>
         <div class="doc-container">
             <router-view></router-view>
+            <footer>
+                <p>Nov UI, Copy right Lenovo SLS STC.</p>
+            </footer>
         </div>
     </div>
 </template>
@@ -31,12 +34,21 @@
     .main {
         padding-top: 50px;
     }
+    footer {
+        text-align: center;
+        width: 100%;
+        padding: 20px;
+        z-index: 100;
+        position: relative;
+        color: lightslategrey;
+    }
     .nav-container {
         padding-top: 15px;
         position: fixed;
         top: 50px;
         bottom: 0;
         width: 200px;
+        z-index: 10;
     }
     .group-container {
         padding-left: 10px;

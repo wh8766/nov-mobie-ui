@@ -57,6 +57,10 @@
                 </div>
             </div>
         </div>
+
+        <footer>
+            <p>Nov UI, Copy right Lenovo SLS STC.</p>
+        </footer>
     </div>
 </template>
 
