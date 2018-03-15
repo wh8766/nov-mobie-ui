@@ -30,7 +30,7 @@
         props: {
             bgImage: {
                 type: String,
-                default: 'https://picsum.photos/375/200/?random'
+                default: ''
             },
             bgColor: {
                 type: String,
@@ -52,9 +52,6 @@
             }
         },
         mounted() {
-            let img = new Image()
-            img.src = this.bgImage
-
             let el = this.$refs.canvas, ctx = el.getContext('2d'), elOffset
             let width = el.parentElement.getBoundingClientRect().width,
                 height = el.parentElement.getBoundingClientRect().height
@@ -65,9 +62,13 @@
             ctx.fillStyle = this.bgColor
             ctx.fillRect(0, 0, width, height)
 
-            img.onload = () => {
-                this.$emit('on-image-load')
-                ctx.drawImage(img, 0, 0, width, height)
+            if (this.bgImage) {
+                let img = new Image()
+                img.src = this.bgImage
+                img.onload = () => {
+                    this.$emit('on-image-load')
+                    ctx.drawImage(img, 0, 0, width, height)
+                }
             }
 
             el.addEventListener('touchstart', e => {

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <nov-page title="NovSwitch" desc="开关">
         <group :title="'基本使用'">
             <nov-switch>默认 false</nov-switch>
             <nov-switch :inline-desc="value1 + ''" v-model="value1">默认 true</nov-switch>
@@ -14,17 +14,20 @@
         <group :title="('html title')">
             <nov-switch ><span style='color:red'>我是红色</span></nov-switch>
         </group>
-    </div>
+    </nov-page>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
     import weui from 'weui.js';
+    import NovPage from '../components/nov-page'
+
     import Group from '@/components/group/group.vue'
-    import novSwitch from '@/components/nov-switch/nov-switch.vue'
+    import NovSwitch from '@/components/nov-switch/nov-switch.vue'
 
     export default {
         components: {
-            novSwitch,
+            NovPage,
+            NovSwitch,
             Group
         },
         methods: {

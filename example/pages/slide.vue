@@ -59,21 +59,21 @@
                 items: [
                     {
                         url: 'http://www.didichuxing.com/',
-                        image: '//webapp.didistatic.com/static/webapp/shield/cube-ui-examples-slide01.png'
+                        image: 'https://picsum.photos/710/150?random&t=a'
                     }, {
                         url: 'http://www.didichuxing.com/',
-                        image: '//webapp.didistatic.com/static/webapp/shield/cube-ui-examples-slide02.png'
+                        image: 'https://picsum.photos/710/150?random&t=b'
                     }
                 ],
                 banners: [
                     {
-                        image: '//via.placeholder.com/375x150/34495e/ffffff',
+                        image: 'https://picsum.photos/375/150?random&t=1',
                         text: '狗年大吉'
                     }, {
-                        image: '//via.placeholder.com/375x150/e74c3c/ffffff',
+                        image: 'https://picsum.photos/375/150?random&t=2',
                         text: '红包拿来'
                     }, {
-                        image: '//via.placeholder.com/375x150/27ae60/ffffff',
+                        image: 'https://picsum.photos/375/150?random&t=3',
                         text: '不给就捣乱'
                     }
                 ],

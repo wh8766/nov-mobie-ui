@@ -1,5 +1,5 @@
 <template>
-    <div class=" weui-cell weui-cell_switch">
+    <div class="weui-cell weui-cell_switch">
         <div class="weui-cell__bd">
             <label class="weui-label" :style="labelStyle" >
                 <slot></slot>

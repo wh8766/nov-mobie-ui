@@ -10,8 +10,9 @@
 
             <div class="item">
                 <h4 class="item__title">刮刮自定义背景、事件</h4>
-                <nov-scratch :touchRadius="25"
-                             :activeBoundary="60"
+                <nov-scratch :touch-radius="25"
+                             :active-boundary="60"
+                             bg-image="./static/scratch-fg.jpg"
                              @on-image-load="onImageLoad"
                              @on-show="onShow"
                              @on-first="onFirst">
@@ -23,8 +24,10 @@
             </div>
 
             <div class="item">
-                <h4 class="item__title">减小的刮奖区域</h4>
-                <nov-scratch :touchRadius="10" :activeBoundary="30">
+                <h4 class="item__title">减小触摸区域</h4>
+                <nov-scratch :touch-radius="10"
+                             bg-image="./static/scratch-fg.jpg"
+                             :active-boundary="30">
                     <div class="scratch-bg">
                         <h4>恭喜哈！狗年要吉祥！</h4>
                         <p>红包拿来</p>
