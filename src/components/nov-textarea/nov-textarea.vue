@@ -1,4 +1,5 @@
 <template>
+
     <div class="weui-cell weui-x-textarea">
         <div class="weui-cell__hd">
             <div :style="labelStyles" v-if="hasRestrictedLabel">
@@ -11,28 +12,31 @@
             </slot>
         </div>
         <div class="weui-cell__bd">
-      <textarea
-              class="weui-textarea"
-              :autocomplete="autocomplete"
-              :autocapitalize="autocapitalize"
-              :autocorrect="autocorrect"
-              :spellcheck="spellcheck"
-              :placeholder="placeholder"
-              :readonly="readonly"
-              :name="name"
-              :rows="rows"
-              :cols="cols"
-              v-model="currentValue"
-              @focus="$emit('on-focus')"
-              @blur="$emit('on-blur')"
-              :style="textareaStyle"
-              :maxlength="max"
-              ref="textarea"></textarea>
+            <textarea
+                class="weui-textarea"
+                :autocomplete="autocomplete"
+                :autocapitalize="autocapitalize"
+                :autocorrect="autocorrect"
+                :spellcheck="spellcheck"
+                :placeholder="placeholder"
+                :readonly="readonly"
+                :name="name"
+                :rows="rows"
+                :cols="cols"
+                v-model="currentValue"
+                @focus="$emit('on-focus')"
+                @blur="$emit('on-blur')"
+                :style="textareaStyle"
+                :maxlength="max"
+                ref="textarea">
+            </textarea>
+
             <div class="weui-textarea-counter" v-show="showCounter && max" @click="focus">
                 <span>{{count}}</span>/{{max}}
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -40,7 +44,7 @@
 
     export default {
         name: 'x-textarea',
-        mounted () {
+        mounted() {
             if (this.$slots && this.$slots['restricted-label']) {
                 this.hasRestrictedLabel = true
             }
@@ -90,78 +94,78 @@
             },
             autosize: Boolean
         },
-        created () {
+        created() {
             this.currentValue = this.value
         },
         watch: {
-            autosize (val) {
+            autosize(val) {
                 this.unbindAutosize()
                 if (val) {
                     this.bindAutosize()
                 }
             },
-            value (val) {
+            value(val) {
                 this.currentValue = val
             },
-            currentValue (newVal) {
+            currentValue(newVal) {
                 if (this.max && newVal && newVal.length > this.max) {
                     this.currentValue = newVal.slice(0, this.max)
                 }
                 this.$emit('on-change', this.currentValue)
             }
         },
-        data () {
+        data() {
             return {
                 hasRestrictedLabel: false,
                 currentValue: ''
             }
         },
         computed: {
-            count () {
+            count() {
                 let len = 0
                 if (this.currentValue) {
                     len = this.currentValue.replace(/\n/g, 'aa').length
                 }
                 return len > this.max ? this.max : len
             },
-            textareaStyle () {
+            textareaStyle() {
                 if (this.height) {
                     return {
                         height: `${this.height}px`
                     }
                 }
             },
-            labelStyles () {
+            labelStyles() {
                 return {
                     width: this.$parent.labelWidth || (this.labelWidth + 'em'),
                     textAlign: this.$parent.labelAlign,
                     marginRight: this.$parent.labelMarginRight
                 }
             },
-            labelWidth () {
+            labelWidth() {
                 return this.title.replace(/[^x00-xff]/g, '00').length / 2 + 1
             },
-            labelClass () {
+            labelClass() {
                 return {
                     'weui-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
                 }
             }
         },
         methods: {
-            updateAutosize () {
+            updateAutosize() {
                 Autosize.update(this.$refs.textarea)
             },
-            bindAutosize () {
+            bindAutosize() {
                 Autosize(this.$refs.textarea)
             },
-            unbindAutosize () {
+            unbindAutosize() {
                 Autosize.destroy(this.$refs.textarea)
             },
-            focus () {
+            focus() {
                 this.$refs.textarea.focus()
             }
         },
-        beforeDestroy () {
+        beforeDestroy() {
             this.unbindAutosize()
         }
     }
@@ -170,6 +174,12 @@
 <style lang='less' type="text/less" rel="stylesheet/less">
     @import "../../common/style/widget/weui-cell/weui-cell_global";
     @import '../../common/style/widget/weui-cell/weui-form/weui-form_common';
+
+    .weui-x-textarea {
+        ::placeholder {
+            font-family: @weuiFontDefault;
+        }
+    }
 
     .weui-x-textarea.weui-cell {
         align-items: flex-start;

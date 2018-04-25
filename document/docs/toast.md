@@ -1,6 +1,6 @@
 ## Toast
 
- `toast`
+ `toast` 提示信息组件
 
 ### 示例
 
@@ -23,33 +23,6 @@
         基本使用
     </toast>
     ```
-
-  type:
-    type: String
-    default: success
-    en: toast type, success, warn, cancel, text
-    zh-CN: 类型，可选值 success, warn, cancel, text
-  width:
-    type: String
-    default: 7.6em
-    en: toast's width
-    zh-CN: 宽度
-  is-show-mask:
-    type: Boolean
-    default: false
-    en: if showing mask, users cannot operate other elements on the page
-    zh-CN: 是否显示遮罩，如果显示，用户将不能点击页面上其他元素
-  text:
-    type: String
-    default: ''
-    en: content of the toast, text or html, the same function as default slot
-    zh-CN: 提示内容，支持 html，和默认slot同样功能
-  position:
-    version: v2.1.1-rc.4
-    type: String
-    default: 'default'
-    en: 'toast position, available values: default, top, middle, bottom'
-    zh-CN: 显示位置，可选值 default, top, middle, bottom
 ### Props 配置
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

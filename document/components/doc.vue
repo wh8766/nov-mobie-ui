@@ -8,10 +8,10 @@
                 </li>
             </ul>
         </div>
-        <div class="doc-container">
+        <div class="doc-container content">
             <router-view></router-view>
             <footer>
-                <p>Nov UI, Copy right Lenovo SLS STC.</p>
+                <p>Nov UI, Copy right Lenovo NCS UED.</p>
             </footer>
         </div>
     </div>
@@ -43,7 +43,7 @@
         color: lightslategrey;
     }
     .nav-container {
-        padding-top: 15px;
+        padding-top: 50px;
         position: fixed;
         top: 50px;
         bottom: 0;
@@ -78,6 +78,7 @@
     }
     .doc-container {
         margin-left: 220px;
+        padding-top: 40px;
 
         table {
             background-color: white;
@@ -85,9 +86,6 @@
         th {
             text-align: left;
         }
-
-
-        // Baseline styles
 
         table {
             width: 100%;
@@ -129,11 +127,6 @@
             }
         }
 
-
-        // Bordered version
-        //
-        // Add borders all around the table and between all the columns.
-
         table {
             border: 1px solid lightgray;
             > thead,
@@ -154,11 +147,6 @@
             }
         }
 
-
-        // Zebra-striping
-        //
-        // Default zebra-stripe styles (alternating gray and transparent backgrounds)
-
         table {
             > tbody > tr:nth-child(odd) {
                 > td,
@@ -172,6 +160,14 @@
     /*
     Darcula color scheme from the JetBrains family of IDEs
     */
+
+    pre {
+        color: #525252;
+        background-color: #f8f8f8;
+        border: none;
+        border-radius: 0;
+    }
+
     .hljs {
         display: block;
         overflow-x: auto;
@@ -206,6 +202,9 @@
         font-style: italic;
     }
 
+    .hljs-tag {
+        color: #cb7832;
+    }
     .hljs-keyword,
     .hljs-selector-tag,
     .hljs-section,

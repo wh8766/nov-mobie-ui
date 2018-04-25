@@ -59,7 +59,7 @@
         </div>
 
         <footer>
-            <p>Nov UI, Copy right Lenovo SLS STC.</p>
+            <p>Nov UI, Copy right Lenovo NCS UED.</p>
         </footer>
     </div>
 </template>
@@ -82,6 +82,16 @@
         background-image: url("https://picsum.photos/1920/1200/?random");
         background-repeat: no-repeat;
         background-position: center center;
+    }
+
+    footer {
+        text-align: center;
+        width: 100%;
+        padding: 20px;
+        z-index: 100;
+        position: relative;
+        text-shadow: 1px 1px 1px #333;
+        color: white;
     }
 
     .main {

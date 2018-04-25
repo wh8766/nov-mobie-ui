@@ -7,14 +7,14 @@
 ### 示例
 
 - 基本用法
-```html
+    ```html
     <nov-button>页面次要操作 Normal</nov-button>
     <nov-button type="primary">页面主操作 Normal</nov-button>
     <nov-button type="primary" :loading="true">页面主操作 Loading</nov-button>
     <nov-button type="primary" :disabled="true">页面主操作 Disabled</nov-button>
     <nov-button :loading="true">页面次操作 Loading</nov-button>
     <nov-button :disabled="true">页面次要操作 Disabled</nov-button>
-```
+    ```
 
 ### Props配置
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

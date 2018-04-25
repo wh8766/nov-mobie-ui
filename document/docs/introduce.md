@@ -25,7 +25,7 @@
 | nov-cli | 快速创建项目，添加页面、路由模板，减少手动配置项 |
 | nov-mobile-template | webpack 配置文件，基础项目脚手架，约定开发目录结构，提供常用基础组件 | vue-cli-template、nov-mobile-ui、nov-wechat、weui.js |
 | nov-mobile-ui | 业务和活动组件的积累，定制化后的weui |
-| nov-wechat | 可自用，可提供给第三方的微信JSSDK依赖我们自己的微信网关 | |
+| nov-wechat | 可自用，可提供给第三方的微信JSSDK 依赖我们自己的微信网关 | |
 
 ### 参考借鉴的开源项目
 

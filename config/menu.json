@@ -41,6 +41,9 @@
             },
             {
                 "name": "loading"
+            },
+            {
+                "name": "toast"
             }
         ]
     },
@@ -64,7 +67,7 @@
                 "name": "button"
             },
             {
-                "name": "form"
+                "name": "group"
             },
             {
                 "name": "upload"

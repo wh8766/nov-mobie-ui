@@ -18,7 +18,6 @@
     ```html
     <group 
         label-align="justify" 
-        label-width="5.5em"
         title="这是分组标题"
         titleColor="red"
         label-width="5.5em"

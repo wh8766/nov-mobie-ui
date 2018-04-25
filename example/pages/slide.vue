@@ -8,8 +8,7 @@
             </nov-slide>
         </div>
         <div class="page">
-            <div class="item">
-                <h4 class="item__title">基础Slide</h4>
+            <group title="基础Slide">
                 <div class="slide-container">
                     <nov-slide
                         :data="items"
@@ -22,10 +21,11 @@
                         :allow-vertical="allowVertical">
                     </nov-slide>
                 </div>
-            </div>
+                <nov-switch v-model="autoPlay">autoPlay</nov-switch>
+                <nov-switch v-model="loop">loop</nov-switch>
+            </group>
 
-            <div class="item">
-                <h4 class="item__title">自定义样式</h4>
+            <group title="自定义样式">
                 <div class="slide-container-custom">
                     <nov-slide>
                         <nov-slide-item v-for="(banner, index) in banners" :key="index">
@@ -37,7 +37,7 @@
                         </template>
                     </nov-slide>
                 </div>
-            </div>
+            </group>
         </div>
     </nov-page>
 </template>
@@ -47,12 +47,17 @@
     import NovSlide from '@/components/slide/slide'
     import NovSlideItem from '@/components/slide/slide-item'
 
+    import Group from '@/components/group/group'
+    import NovSwitch from '@/components/nov-switch/nov-switch'
+
     export default {
         name: "page-slide",
         components: {
             NovPage,
             NovSlide,
-            NovSlideItem
+            NovSlideItem,
+            Group,
+            NovSwitch
         },
         data() {
             return {
