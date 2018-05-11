@@ -8,7 +8,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import {offset} from "@/tools/dom";
+    import dom from "@/tool/dom";
 
     let getTransparentPercent = function(ctx, width, height) {
         let imgData = ctx.getImageData(0, 0, width, height),
@@ -72,7 +72,7 @@
             }
 
             el.addEventListener('touchstart', e => {
-                elOffset = offset(el)
+                elOffset = dom.offset(el)
                 // 判断是否真实用户操作
                 if (!e.isTrusted) {
                     return

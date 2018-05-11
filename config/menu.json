@@ -41,9 +41,6 @@
             },
             {
                 "name": "loading"
-            },
-            {
-                "name": "toast"
             }
         ]
     },
@@ -89,9 +86,6 @@
             },
             {
                 "name": "novSwitch"
-            },
-            {
-                "name": "toast"
             }
         ]
     },
@@ -99,6 +93,9 @@
         "name": "其他 Other",
         "type": "components",
         "children": [
+            {
+                "name": "toast"
+            },
             {
                 "name": "other"
             }
