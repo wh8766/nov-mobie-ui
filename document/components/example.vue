@@ -28,7 +28,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    let url = encodeURIComponent('http://fe.g.lenovo.com.cn/nov-mobile-ui/example.html')
+    let url = encodeURIComponent(location.origin + location.pathname + 'example.html')
 
     export default {
 
